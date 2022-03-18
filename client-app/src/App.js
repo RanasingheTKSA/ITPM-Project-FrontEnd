@@ -1,7 +1,6 @@
-import logo from './logo.svg';
 import './App.css';
+import CartItemsComponent from './components/component-tksa/CartItemsComponents';
 import HeaderComponent from './components/HeaderComponent';
-import CartItemsComponent from './components/CartItemsService';
 
 function App() {
   return (

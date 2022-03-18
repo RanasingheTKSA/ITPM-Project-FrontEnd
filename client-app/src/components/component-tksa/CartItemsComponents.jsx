@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import CartItemsService from '../services/CartItemsService';
+import CartItemsService from '../../services/service-tksa/CartItemsService';
 
 class CartItemsComponent extends Component {
     constructor(props){
@@ -19,13 +19,13 @@ class CartItemsComponent extends Component {
     render() {
         return (
             <div>
-                <h2 className='text-center'>CART ITEMS</h2>
+                <h2 className='text-center'>CART ITEMS</h2>         
                 <div className='row'>
                     <table className='table table-striped table-borderd'>
                         
                         <thead>
                             <tr>
-                                <th>ITEM NAMES</th>
+                                <th>ITEM NAME</th>
                                 <th>ITEM DESCRIPTION</th>
                                 <th>ITEM SIZE</th>
                                 <th>ITEM COLOUR</th>
