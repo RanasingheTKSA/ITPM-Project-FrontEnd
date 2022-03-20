@@ -11,12 +11,19 @@ class CartItemsComponent extends Component {
                 cart_item : []
         }
         this.deleteCartItem = this.deleteCartItem.bind(this);
+        this.shippingDetails = this.shippingDetails.bind(this);
     }
 
+    //detele cart item method
     deleteCartItem(id){
         CartItemsService.deleteCartItem(id).then(res => {
             this.setState({cart_item: this.state.cart_item.filter(cartitem => cartitem.id !== id)});
         });
+    }
+
+    //shipping details page mathod
+    shippingDetails(){
+        this.props.history.push('/shippingDetails');
     }
 
     componentDidMount(){
@@ -28,6 +35,7 @@ class CartItemsComponent extends Component {
     render() {
         return (
             <div>
+                <div className='a'>
                 <h2 className='text-center'>CART ITEMS</h2>         
                 <div className='row'>
                     <table border ='5'>
@@ -82,7 +90,7 @@ class CartItemsComponent extends Component {
                                         <br/>
 
                                         <div className='buttonCenter'>
-                                            <button type="button" className='button' class="btn btn-success">Success</button>
+                                            <button type="button" className='button' class="btn btn-success" onClick={this.shippingDetails}>PAY NOW</button>
                                         </div>
                                     </div>
 
@@ -90,20 +98,8 @@ class CartItemsComponent extends Component {
                             </td>
                         </tr>
                     </table>
-
                     
-                <br/>
-                    <br/>
-                    <br/>
-                    <table className='table table-striped table-borderd' border = "3">
-                        
-                        <tr>
-                            <td>
-                            
-                               
-                            </td>
-                        </tr>
-                    </table>
+                </div>
                 </div>
             </div>
         );
