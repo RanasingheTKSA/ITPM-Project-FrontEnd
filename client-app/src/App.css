@@ -36,3 +36,30 @@
     transform: rotate(360deg);
   }
 }
+
+
+
+
+/* CSS - Ranasinghe TKSA */
+.td_size{
+  width: 75%;
+}
+
+.CardDiv{
+  width: 10px;
+}
+
+.OrderSummary{
+  font-size: 20px;
+  text-align: center;
+}
+.centeraling{
+  text-align: center;
+}
+
+.label{
+  font-weight: bold;
+}
+.buttonCenter{
+  text-align: center;
+}

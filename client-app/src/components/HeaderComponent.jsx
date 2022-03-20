@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 
+
 class HeaderComponent extends Component {
     constructor (porps){
         super(porps)
@@ -14,11 +15,10 @@ class HeaderComponent extends Component {
             <div>
                 <header>
                     <nav className='navbar navbar-expand-md navbar-dark bg-dark'>
-                        <div className='navbar-brand'>TKSA</div>
+                        <div className='navbar-brand'></div>
                     </nav>
                 </header>
             </div>
-
         );
     }
 }
