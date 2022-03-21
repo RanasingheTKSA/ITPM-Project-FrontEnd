@@ -4,6 +4,9 @@ import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import HeaderComponent from './components/HeaderComponent';
 import CartItemsComponent from './components/component-tksa/CartItemsComponents';
 import ShippingDetailsComponent from "./components/component-tksa/ShippingDetailsComponent";
+import AddShippingDetailsComponent from "./components/component-tksa/AddShippingDetailsComponent";
+import UpdateShippingDetails from "./components/component-tksa/UpdateShippingDetails";
+
 
 function App() {
   return (
@@ -16,7 +19,8 @@ function App() {
                 <Route path = "/" exact component = {CartItemsComponent}></Route>
                 <Route path = "/cartItems" component = {CartItemsComponent}></Route>
                 <Route path = "/shippingDetails" component = {ShippingDetailsComponent}></Route>
-                <Route path = "/shippingDetails" component = {ShippingDetailsComponent}></Route>
+                <Route path = "/add-shippingDetails" component = {AddShippingDetailsComponent}></Route>
+                <Route path = "/update-shippingDetails/:id" component = {UpdateShippingDetails}></Route>
               </Switch>
             </div>
         </div>
