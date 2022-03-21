@@ -42,7 +42,7 @@
 
 /* CSS - Ranasinghe TKSA */
 .td_size{
-  width: 75%;
+  width: 60%;
 }
 
 .CardDiv{
@@ -62,4 +62,40 @@
 }
 .buttonCenter{
   text-align: center;
+}
+.legendalign, .buttonAlign{
+  text-align: center;
+}
+
+
+
+
+.tablesize{
+  width: 100%;
+}
+
+.table{
+  background-color: antiquewhite;
+  border-radius: 25px;
+}
+.form{
+  background-color:bisque;
+  border-radius: 25px;
+}
+
+.buttonSize{
+  width: 100px;
+}
+
+.tdWidth{
+}
+.tdWidth1{
+}
+.aligndiv{
+  text-align: center;
+}
+
+.form1{
+  background-color: beige;
+  border-radius: 25px;
 }
