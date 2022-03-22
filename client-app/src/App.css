@@ -72,15 +72,18 @@
 
 .tablesize{
   width: 100%;
+  background-color: cornsilk;
+  border-radius: 5px;
 }
 
 .table{
   background-color: antiquewhite;
   border-radius: 25px;
+  padding-left: 5px;
 }
 .form{
-  background-color:bisque;
   border-radius: 25px;
+  padding-left: 20px;
 }
 
 .buttonSize{

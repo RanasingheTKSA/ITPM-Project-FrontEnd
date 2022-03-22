@@ -36,7 +36,7 @@ class ShippingDetails extends Component {
             <div>
                 <h2 className='text-center'>SHIPPING & PAYMENT DETAILS</h2> <br/>
 
-                <Table striped bordered hover>
+                {/* <Table striped bordered hover>
                     <thead>
                         <th>SHIPPING DETAILS</th>
                         <tr>
@@ -68,9 +68,9 @@ class ShippingDetails extends Component {
                         }
                         
                     </tbody>
-                </Table>
+                </Table> */}
 
-                <table className='tablesize' border='2'>
+                <table className='tablesize' >
                     <tr>
                         <td>
                             <form class="rounded-top" className='form'>
@@ -112,12 +112,7 @@ class ShippingDetails extends Component {
                             </form>
                         </td>
 
-                        <td>
-                            <form>
-                            </form>
-                        </td>
-
-                        <td>
+                        <td> <br/>
                             <div className= "container">
                                 <div className= "row">
                                     <div className= "card col-md-6 offset-md-3 offset-md-3">
