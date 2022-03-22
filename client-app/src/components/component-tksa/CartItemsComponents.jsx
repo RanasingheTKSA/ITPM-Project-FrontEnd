@@ -39,7 +39,7 @@ class CartItemsComponent extends Component {
                 <div className='a'>
                 <h2 className='text-center'>CART ITEMS</h2>         
                 <div className='row'>
-                    <table >
+                    <table className='tablesize'>
                         <tr>
                             <td className='td_size'>
                             {
