@@ -11,14 +11,22 @@ class CartItemsComponent extends Component {
                 cart_item : []
         }
         this.deleteCartItem = this.deleteCartItem.bind(this);
+        this.shippingDetails = this.shippingDetails.bind(this);
     }
 
+    //detele cart item method
     deleteCartItem(id){
         CartItemsService.deleteCartItem(id).then(res => {
             this.setState({cart_item: this.state.cart_item.filter(cartitem => cartitem.id !== id)});
         });
     }
 
+    //shipping details page mathod
+    shippingDetails(){
+        this.props.history.push('/shippingDetails');
+    }
+
+    //get cartitems
     componentDidMount(){
             CartItemsService.getCartItems().then((res) =>{
             this.setState({cart_item: res.data})
@@ -28,9 +36,10 @@ class CartItemsComponent extends Component {
     render() {
         return (
             <div>
+                <div className='a'>
                 <h2 className='text-center'>CART ITEMS</h2>         
                 <div className='row'>
-                    <table border ='5'>
+                    <table className='tablesize'>
                         <tr>
                             <td className='td_size'>
                             {
@@ -57,54 +66,54 @@ class CartItemsComponent extends Component {
                             }
                             </td>
                             <td>
-                                <div class="card">
+                                <br/><br/><br/>
+                                <div className= "container">
+                                    <div className= "row">
+                                        <div className= "card col-md-6 offset-md-3 offset-md-3"><br/>
+                                            <h6 className= "text-center"> ORDER SUMMARY </h6>
 
-                                    <h5 className='OrderSummary' >ORDER SUMMARY</h5>
-                                    <div class="card-body">
-                                            
-                                        <table className='tableCenter' border = '2'>
-                                            <tr>
-                                                <label className='label'> SUB TOTAL : </label>
-                                                <td> DISPLAY PRICE</td>
-                                            </tr>
-                                            <br/>
-                                            
-                                            <tr>
-                                                <label className='label'> SHIPPING FEE : </label>
-                                                <td> DISPLAY VALUE</td>
-                                            </tr>
-                                            <br/>
-                                            <tr>
-                                                <label className='label'> SUB TOTAL : </label>
-                                                <td> DISPLAY VALUE</td>
-                                            </tr>
-                                        </table>
-                                        <br/>
+                                            <div className= "card-body">
+                                                <form>
+                                                    <div className="form-group">
+                                                        <label> SUB TOTAL </label>
+                                                        <input 
+                                                            placeholder=' SUB TOTAL'
+                                                            name='sub-total'
+                                                            className='form-control'
+                                                            />
+                                                    </div><br/>
+                                                    <div className="form-group">
+                                                        <label> SHIPPING FEE </label>
+                                                        <input 
+                                                            placeholder=' SHIPPING FEE'
+                                                            name='shipping-fee'
+                                                            className='form-control'/>
+                                                    </div><br/>
+                                                    <div className="form-group">
+                                                        <label> TOTAL PRICE </label>
+                                                        <input 
+                                                            placeholder='TOTAL FEE'
+                                                            name='total-price'
+                                                            className='form-control'/>
+                                                    </div><br/>
 
-                                        <div className='buttonCenter'>
-                                            <button type="button" className='button' class="btn btn-success">Success</button>
+                                                    <div className='buttonCenter'>
+                                                        <button type="button" className='button' class="btn btn-success" onClick={this.shippingDetails}>PAY NOW</button>
+                                                    </div>
+                                                </form>
+                                            </div>
                                         </div>
                                     </div>
-
-                                </div>                                    
+                                </div>
                             </td>
-                        </tr>
-                    </table>
 
-                    
-                <br/>
-                    <br/>
-                    <br/>
-                    <table className='table table-striped table-borderd' border = "3">
-                        
-                        <tr>
-                            <td>
                             
-                               
-                            </td>
                         </tr>
                     </table>
+                    
                 </div>
+                </div>
+                <br/><br/><br/>
             </div>
         );
     }
