@@ -189,6 +189,7 @@ class ShippingDetails extends Component {
                     </tr>
 
                 </table>
+                <br/><br/><br/>
             </div>
         );
     }

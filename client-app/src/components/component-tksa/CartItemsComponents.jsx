@@ -113,6 +113,7 @@ class CartItemsComponent extends Component {
                     
                 </div>
                 </div>
+                <br/><br/><br/>
             </div>
         );
     }

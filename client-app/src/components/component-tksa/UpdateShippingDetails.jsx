@@ -126,7 +126,7 @@ class UpdateShippingDetails extends Component {
                         </div>
                     </div>
                 </div>
-
+                <br/><br/><br/>
             </div>
         );
     }
