@@ -85,51 +85,10 @@ class FooterComponent extends Component {
 				        </div>
                     </div>  
 
-                    <div class="row partner-wrap mt-5">
-                        <div class="col-md-12">
-                            <div class="row align-items-center">
-                                <div class="col">
-                                    <h3 class="mb-0">Our Partner:</h3>
-                                </div>
-                                <div class="col-md-9">
-                                    <p class="partner-name mb-0">
-                                        <a href="#"><span class="ion-logo-ionic mr-2"></span>Company 01</a>
-                                        <a href="#"><span class="ion-logo-ionic mr-2"></span>Company 02</a>
-                                        <a href="#"><span class="ion-logo-ionic mr-2"></span>Company 03</a>
-                                        <a href="#"><span class="ion-logo-ionic mr-2"></span>Company 04</a>
-                                        <a href="#"><span class="ion-logo-ionic mr-2"></span>Company 05</a>
-                                        <a href="#"><span class="ion-logo-ionic mr-2"></span>Company 06</a>
-                                    </p>
-                                </div>
-                                <div class="col text-md-right">
-                                    <p class="mb-0"><a href="#" class="btn-custom">See All <span class="ion-ios-arrow-round-forward"></span></a></p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                   
                     
-                    <div class="row mt-5">          
-                        <div class="col-md-6 col-lg-8">
-
-                            <p class="copyright">
-                                    Copyright &copy;
-                                    <script>document.write(new Date().getFullYear());</script> 
-                                        All rights reserved | This template is made with 
-                                        <i class="ion-ios-heart" aria-hidden="true"></i> by 
-                                        <a href="https://colorlib.com" target="_blank">Colorlib.com</a>
-                            </p>
-
-                            <div class="col-md-6 col-lg-4 text-md-right">
-                                <p class="mb-0 list-unstyled">
-                                    <a class="mr-md-3" href="#">Terms</a>
-                                    <a class="mr-md-3" href="#">Privacy</a>
-                                    <a class="mr-md-3" href="#">Compliances</a>
-                                </p>
-                            </div>
-                            
-                        </div>
-                    </div>
-                </footer>
+                    
+                </footer> 
             </div>
 
 

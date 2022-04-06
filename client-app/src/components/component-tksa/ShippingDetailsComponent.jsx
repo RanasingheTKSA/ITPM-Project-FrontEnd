@@ -4,6 +4,7 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import ShippingDetailsService from '../../services/service-tksa/ShippingDetailsService';
 import { Button, Table } from 'react-bootstrap';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 class ShippingDetails extends Component {
     constructor(props){
@@ -33,90 +34,81 @@ class ShippingDetails extends Component {
     
     render() {
         return (
-            <div>
+            <div className='a'>
                 <h2 className='text-center'>SHIPPING & PAYMENT DETAILS</h2> <br/>
 
-                {/* <Table striped bordered hover>
-                    <thead>
-                        <th>SHIPPING DETAILS</th>
-                        <tr>
-                            <th>CUSTOMER NAME</th>
-                            <th>PHONE NUMBER</th>
-                            <th>SHIPPING ADDRESS</th>
-                            <th>ZIP CODE</th>
-                            <th>ACTIONS</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {
-                            this.state.shipping_details.map(
-                                shipping_details =>
-
-                                <tr key = {shipping_details.id}>
-                                    <td>{shipping_details.ownerName}</td>
-                                    <td>{shipping_details.phoneNumber}</td>
-                                    <td>{shipping_details.shippingAddress}</td>
-                                    <td>{shipping_details.zipCode}</td>
-                                    <td>
-                                        <button type="button" class="btn btn-primary" onClick={this.addShippingDetails}>ADD NEW ADDRESS</button> <br/><br/>
-                                        <button type="button" class="btn btn-warning" 
-                                                onClick={ () => this.updateShippingDetails(ShippingDetails.id)} 
-                                                className="btn btn-info" >UPDATE ADDRESS</button>
-                                    </td>
+                <div class="row1">
+                    <div class="column">
+                        <div className='alignment'>
+                            <table className='tableWidth'>
+                                <tr className='trHeading'>
+                                    SHIPPING DETAILS
                                 </tr>
-                            )
-                        }
-                        
-                    </tbody>
-                </Table> */}
-
-                <table className='tablesize' >
-                    <tr>
-                        <td>
-                            <form class="rounded-top" className='form'>
-                                <fieldset>
-                                <legend className='legendalign'>SHIPPING DETAILS</legend><br/>
-                                    <table className='table'>
-                                        <tr>
-                                            <td className='tdWidth'> <br/>
-                                                <label>CUSTOMER NAME     : </label><br/>
-                                                <label>PHONE NUMBER      : </label><br/>
-                                                <label>SHIPPING ADDRESS  : </label><br/>
-                                                <label>ZIP CODE          : </label><br/>
-                                            </td>
-
-                                            {
-                                                this.state.shipping_details.map(
-                                                    shipping_details =>
-                                                    <td className='tdWidth' key = {shipping_details.id}>
+                                <tr>
+                                    <td>
+                                        <label className='alignPadding'>CUSTOMER NAME     : </label><br/>
+                                        <label className='alignPadding'>PHONE NUMBER      : </label><br/>
+                                        <label className='alignPadding'>SHIPPING ADDRESS  : </label><br/>
+                                        <label className='alignPadding'>ZIP CODE          : </label><br/>
+                                    </td>
+                                    <td>
+                                        {
+                                            this.state.shipping_details.map(
+                                                shipping_details =>
+                                                <td className='tdWidth' key = {shipping_details.id}>
                                                         <label>{shipping_details.ownerName}</label> <br/>
                                                         <label>{shipping_details.phoneNumber}</label> <br/>
                                                         <label>{shipping_details.shippingAddress}</label> <br/>
                                                         <label>{shipping_details.zipCode}</label> <br/>
-                                                    </td>
-                                                )                                                                                                   
-                                            }
+                                                </td>
+                                            )                                                                                                   
+                                        }
+                                    </td>
+                                    
+                                    <td>
+                                        {/* <button type="button" class="btn btn-primary" onClick={this.addShippingDetails}>ADD NEW ADDRESS</button> <br/><br/> */}
+                                        <i class="fa-solid fa-square-plus fa-2x" onClick={this.addShippingDetails}></i> <br/>
+                                        <i class="fa-solid fa-square-pen fa-2x" onClick={ () => this.updateShippingDetails(ShippingDetails.id)}></i>
+                                        {/* <button type="button" class="btn btn-warning" 
+                                                onClick={ () => this.updateShippingDetails(ShippingDetails.id)} 
+                                                className="btn btn-info" >UPDATE ADDRESS</button> */}
+                                    </td>
+                                </tr>
+                                
+                                <hr/>
+                                {/* card details */}
+                                <tr className='trHeading'>
+                                    <td>CARD DETAILS </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <label className='alignPadding'>CARD HOLDERNAME     : </label><br/>
+                                        <label className='alignPadding'>CARD NUMBER      : </label><br/>
+                                        <label className='alignPadding'>EXPIRATION DATE      : </label><br/>
+                                    </td>
+                                    <td>
+                                        <form class="rounded-top" className='form' >
+                                            <input placeholder='CARD HOLDERNAME'></input><br/>
+                                            <input placeholder='CARD NUMBER '></input><br/> 
+                                            <input placeholder='EXPIRATION DATE '></input><br/>
+                                        </form>
+                                    </td>
+                                    <td>
+                                        
+                                        {/* <button type="button" class="btn btn-primary">ADD PAYMENT METHOD</button> <br/> */}
+                                        <i class="fa-solid fa-square-plus fa-2x"></i>
+                                    </td>
+                                </tr>
 
-                                            
-                                            <td className='tdWidth1'>
-                                                <div className='aligndiv'>
-                                                    <button type="button" class="btn btn-primary" onClick={this.addShippingDetails}>ADD NEW ADDRESS</button> <br/><br/>
-                                                    <button type="button" class="btn btn-warning" 
-                                                            onClick={ () => this.updateShippingDetails(ShippingDetails.id)} 
-                                                            className="btn btn-info" >UPDATE ADDRESS</button>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                    </table>
-                                </fieldset>
-                            </form>
-                        </td>
+                            </table>
+                        </div>
+                    </div>
 
-                        <td> <br/>
-                            <div className= "container">
-                                <div className= "row">
-                                    <div className= "card col-md-6 offset-md-3 offset-md-3">
-                                        <h5 className= "text-center"> ORDER SUMMARY </h5>
+                    <div class="column" >
+                        <div className= "container">
+                            <div className= "row">
+                                <div className= "card col-md-6 offset-md-3 offset-md-3">
+                                    <h5 className= "text-center"> ORDER SUMMARY </h5>
 
                                         <div className= "card-body">
                                             <form>
@@ -125,9 +117,9 @@ class ShippingDetails extends Component {
                                                     <input 
                                                         placeholder=' SUB TOTAL'
                                                         name='sub-total'
-                                                        className='form-control'
-                                                        />
+                                                        className='form-control'/>
                                                 </div><br/>
+
                                                 <div className="form-group">
                                                     <label> SHIPPING FEE </label>
                                                     <input 
@@ -135,6 +127,7 @@ class ShippingDetails extends Component {
                                                         name='shipping-fee'
                                                         className='form-control'/>
                                                 </div><br/>
+                                                        
                                                 <div className="form-group">
                                                     <label> TOTAL PRICE </label>
                                                     <input 
@@ -142,54 +135,21 @@ class ShippingDetails extends Component {
                                                         name='total-price'
                                                         className='form-control'/>
                                                 </div><br/>
+
                                                 <div className='buttonAlign'>
                                                     <button class="btn btn-success">PAY NOW</button>
                                                 </div>
                                             </form>
                                         </div>
-                                    </div>
+
                                 </div>
                             </div>
-                        </td>
-                    </tr><br/>
+                        </div>
+                    </div>
 
-                    <tr>
-                        <td>
-                            <form class="rounded-top" className='form' >
-                                <fieldset><br/>
-                                <legend className='legendalign'>PAYMENT DETAILS</legend><br/>
+                </div><br/><br/>
 
-                                <table className='table' >
-                                        <tr>
-                                            <td className='tdWidth'> <br/>
-                                                <label>CARD HOLDERNAME     : </label><br/><br/>
-                                                <label>CARD NUMBER      : </label><br/><br/>
-                                                <label>EXPIRATION DATE      : </label><br/><br/>
-                                            </td>
-
-                                            <td className='tdWidth1'> <br/>
-                                                <input placeholder='CARD HOLDERNAME'></input><br/><br/>
-                                                <input placeholder='CARD NUMBER '></input><br/><br/>
-                                                {/* <DatePicker>
-                                                    selected = {selectedDate}
-                                                    onChange = { date => setSelectedDate (date) }
-                                                </DatePicker> */}
-                                                <input placeholder='EXPIRATION DATE '></input><br/><br/>
-                                            </td>
-                                            <td className='tdWidth1'>
-                                                <div className='aligndiv'>
-                                                    <button type="button" class="btn btn-primary">ADD PAYMENT METHOD</button> <br/><br/>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                </table>
-                                </fieldset>  
-                            </form>
-                        </td>
-                    </tr>
-
-                </table>
-                <br/><br/><br/>
+                
             </div>
         );
     }
