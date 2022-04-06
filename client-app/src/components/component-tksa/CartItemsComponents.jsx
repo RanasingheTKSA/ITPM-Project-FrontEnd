@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import CartItemsService from '../../services/service-tksa/CartItemsService';
 import Card from "react-bootstrap/Card";
 import { Button, CardImg} from 'react-bootstrap';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 class CartItemsComponent extends Component {
     constructor(props){
@@ -37,36 +38,48 @@ class CartItemsComponent extends Component {
         return (
             <div>
                 <div className='a'>
-                <h2 className='text-center'>CART ITEMS</h2>         
+                <h2 className='text-center'>CART ITEMS</h2> 
+                        
                 <div className='row'>
                     <table className='tablesize'>
-                        <tr>
+                    <br/> <br/>
+                        
+                        <tr> 
                             <td className='td_size'>
                             {
                                 this.state.cart_item.map(
                                     cartitem =>
-                                        <Card border="secondary" key = {cartitem.id}>
+                                        <Card border="secondary" key = {cartitem.id} >
                                             <Card.Header as="h3">{cartitem.itmeName}</Card.Header>
                                             <Card.Body>
-                                                <img src='.../../Asset/7.jpg'></img>
-                                                <Card.Text>ITEM DESCRIPTION : {cartitem.itemDescription}</Card.Text>
-                                                <Card.Text>ITEM SIZE : {cartitem.itemSize}</Card.Text>
-                                                <Card.Text>ITEM COLOUR : {cartitem.itemColour}</Card.Text>
-                                                <Card.Text>ITEM PRICE : {cartitem.itemPrice}</Card.Text>
-                                                <div className='d'>
-                                                    <Button variant="danger"
-                                                            onClick={() => this.deleteCartItem(cartitem.id)}
-                                                            className = "btn btn-danger">
-                                                                DELETE</Button>
-                                                </div>
-                                                
+                                                <table className='tablealign'>
+                                                    <tr>
+                                                        <td className='imageAlign'>
+                                                            <Card.Img src='../../Asset/26/jpg'/>
+                                                        </td>
+                                                        <td className='colunmSize'>
+                                                            <Card.Text className='textAlign' >ITEM DESCRIPTION : {cartitem.itemDescription}</Card.Text>
+                                                            <Card.Text className='textAlign' >ITEM SIZE : {cartitem.itemSize}</Card.Text>
+                                                            <Card.Text className='textAlign' >ITEM COLOUR : {cartitem.itemColour}</Card.Text>
+                                                            <Card.Text className='textAlign' >ITEM PRICE : {cartitem.itemPrice}</Card.Text>
+                                                        </td>
+                                                        <td className='buttonAlign'>
+                                                                {/* <Button variant="danger"
+                                                                    onClick={() => this.deleteCartItem(cartitem.id)}
+                                                                    className = "btn btn-danger">
+                                                                        DELETE</Button> <br/> */}
+                                                                        <i class="fa fa-trash fa-2x" aria-hidden="true"></i>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                               
                                             </Card.Body>
-                                        </Card>
+                                        </Card> 
                                 )
-                            }
-                            </td>
+                            }  <br/> <br/>
+                            </td> 
                             <td>
-                                <br/><br/><br/>
+                               
                                 <div className= "container">
                                     <div className= "row">
                                         <div className= "card col-md-6 offset-md-3 offset-md-3"><br/>

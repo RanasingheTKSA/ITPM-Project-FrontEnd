@@ -43,6 +43,7 @@
 /* CSS - Ranasinghe TKSA */
 .td_size{
   width: 60%;
+  padding-left: 35px;
 }
 
 .CardDiv{
@@ -90,10 +91,6 @@
   width: 100px;
 }
 
-.tdWidth{
-}
-.tdWidth1{
-}
 .aligndiv{
   text-align: center;
 }
@@ -103,8 +100,57 @@
   border-radius: 25px;
 }
 
+.cardalign{
+  padding-left: 10px;
+}
+.tablealign{
+  width: 100%;
+}
+.buttonAlign{
+  align-items: right;
+}
+.imageAlign, .textAlign{
+  padding-left: 10px;
+}
+.colunmSize{
+  width: 75%;
+}
 
 
+.tableWidth{
+  width: 100%;
+  padding-left: 10px;
+}
+
+.row1 {
+  content: "";
+  display: table;
+  clear: both;
+  width:100%;
+  height:auto;
+}
+.column {
+  float: left;
+  width:50%;
+  padding: 10px;
+  height: 500px; /* Should be removed. Only for demonstration */
+  background-color: #818182;
+  border-radius: 10px;
+}
+.size{
+  size: 115px;
+}
+.trHeading{
+  text-align: center;
+  font-weight: bold;
+}
+.alignment{
+  background-color: white;
+  border-radius: 10px;
+}
+.alignPadding{
+  padding-left: 10px;
+}
 
 
 

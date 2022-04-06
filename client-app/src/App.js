@@ -7,6 +7,7 @@ import ShippingDetailsComponent from "./components/component-tksa/ShippingDetail
 import AddShippingDetailsComponent from "./components/component-tksa/AddShippingDetailsComponent";
 import UpdateShippingDetails from "./components/component-tksa/UpdateShippingDetails";
 import FooterComponent from "./components/FooterComponent";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 
 function App() {
