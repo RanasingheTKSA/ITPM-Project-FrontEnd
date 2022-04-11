@@ -37,8 +37,8 @@ class ShippingDetails extends Component {
             <div className='a'>
                 <h2 className='text-center'>SHIPPING & PAYMENT DETAILS</h2> <br/>
 
-                <div class="row1">
-                    <div class="column">
+                <div class="row1"> 
+                    <div class="column"> <br/>
                         <div className='alignment'>
                             <table className='tableWidth'>
                                 <tr className='trHeading'>
@@ -60,6 +60,7 @@ class ShippingDetails extends Component {
                                                         <label>{shipping_details.phoneNumber}</label> <br/>
                                                         <label>{shipping_details.shippingAddress}</label> <br/>
                                                         <label>{shipping_details.zipCode}</label> <br/>
+                                                        <i class="fa-solid fa-square-pen fa-2x" onClick={ () => this.updateShippingDetails(shipping_details.id)}></i>
                                                 </td>
                                             )                                                                                                   
                                         }
@@ -104,7 +105,7 @@ class ShippingDetails extends Component {
                         </div>
                     </div>
 
-                    <div class="column" >
+                    <div class="column123" > <br/>
                         <div className= "container">
                             <div className= "row">
                                 <div className= "card col-md-6 offset-md-3 offset-md-3">

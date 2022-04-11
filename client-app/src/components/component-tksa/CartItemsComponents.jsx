@@ -38,7 +38,7 @@ class CartItemsComponent extends Component {
         return (
             <div>
                 <div className='a'>
-                <h2 className='text-center'>CART ITEMS</h2> 
+                <h2 className='text-center'>CART ITEMS</h2>
                         
                 <div className='row'>
                     <table className='tablesize'>
@@ -68,7 +68,7 @@ class CartItemsComponent extends Component {
                                                                     onClick={() => this.deleteCartItem(cartitem.id)}
                                                                     className = "btn btn-danger">
                                                                         DELETE</Button> <br/> */}
-                                                                        <i class="fa fa-trash fa-2x" aria-hidden="true"></i>
+                                                                        <i class="fa fa-trash fa-2x" aria-hidden="true" onClick={() => this.deleteCartItem(cartitem.id)}></i>
                                                         </td>
                                                     </tr>
                                                 </table>
@@ -122,9 +122,9 @@ class CartItemsComponent extends Component {
 
                             
                         </tr>
-                    </table>
-                    
+                    </table>  
                 </div>
+
                 </div>
                 <br/><br/><br/>
             </div>

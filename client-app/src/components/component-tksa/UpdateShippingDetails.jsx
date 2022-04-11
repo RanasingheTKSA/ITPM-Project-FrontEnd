@@ -42,7 +42,10 @@ class UpdateShippingDetails extends Component {
                               };
         
         console.log ('shippingDetails =>' + JSON.stringify(shippingDetails));
-        
+        ShippingDetailsService.updateShippingAddress(shippingDetails, this.state.id).then( res => {
+            this.props.history.push('/shippingDetails')
+        });
+
     }
     
 

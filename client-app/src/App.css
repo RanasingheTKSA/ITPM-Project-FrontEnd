@@ -73,8 +73,9 @@
 
 .tablesize{
   width: 100%;
-  background-color: cornsilk;
+  background-color: gray;
   border-radius: 5px;
+  border: 3px;
 }
 
 .table{
@@ -131,9 +132,17 @@
 }
 .column {
   float: left;
-  width:50%;
+  width:60%;
   padding: 10px;
-  height: 500px; /* Should be removed. Only for demonstration */
+  height: 520px; /* Should be removed. Only for demonstration */
+  background-color: #818182;
+  border-radius: 10px;
+}
+.column123 {
+  float: left;
+  width: 40%;
+  padding: 10px;
+  height: 520px; /* Should be removed. Only for demonstration */
   background-color: #818182;
   border-radius: 10px;
 }
@@ -143,6 +152,8 @@
 .trHeading{
   text-align: center;
   font-weight: bold;
+  width: 100%;
+  background-color: #0069d9;
 }
 .alignment{
   background-color: white;
@@ -208,7 +219,9 @@ margin-bottom:10px;
 
 
 
-
+.div_colour{
+  
+}
 
 
 
