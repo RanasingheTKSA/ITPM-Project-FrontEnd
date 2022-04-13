@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import CardPaymentDetailsService from '../../services/service-tksa/CardPaymentDetailsService';
 
 class UpdateCardPaymentDetailsComponent extends Component {
     constructor(props){
@@ -17,7 +18,7 @@ class UpdateCardPaymentDetailsComponent extends Component {
         return (
             <div className='a'>
 
-<div className= "container">
+                <div className= "container">
                     <div className= "row">
                         <div className= "card col-md-6 offset-md-3 offset-md-3">
                             <h3 className= "text-center"> UPDATE CARD PAYMENT DETAILS</h3>

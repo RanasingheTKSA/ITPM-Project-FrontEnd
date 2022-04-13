@@ -56,7 +56,7 @@ class CartItemsComponent extends Component {
                                                 <table className='tablealign'>
                                                     <tr>
                                                         <td className='imageAlign'>
-                                                            <Card.Img src='../../Asset/26/jpg'/>
+                                                            <Card.Img />
                                                         </td>
                                                         <td className='colunmSize'>
                                                             <Card.Text className='textAlign' >ITEM DESCRIPTION : {cartitem.itemDescription}</Card.Text>
