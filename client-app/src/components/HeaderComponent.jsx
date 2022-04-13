@@ -22,9 +22,9 @@ class HeaderComponent extends Component {
                     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
                 </head>
                 <div class="menubar-main-div body-i">
-                    <div class="logo-n">
+                    {/* <div class="logo-n">
                         <img src="https://res.cloudinary.com/dff4rbfkn/image/upload/c_scale,w_100/v1646887829/WhatsApp_Image_2022-03-10_at_9.59.40_AM_b3r1rq.jpg" />
-                    </div>
+                    </div> */}
                     <button class="bar expand-mobile-menu">
                     <i class='fas fa-bars' id="#menu-b">
                         

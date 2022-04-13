@@ -73,15 +73,23 @@
 
 .tablesize{
   width: 100%;
-  background-color: cornsilk;
+  background-color: lightgray;
   border-radius: 5px;
+  border: 3px;
 }
 
 .table{
-  background-color: antiquewhite;
   border-radius: 25px;
-  padding-left: 5px;
+  padding-left: 15px;
 }
+.textColours{
+  color: white;
+}
+
+.TableAlign{
+  padding-left: 10px;
+}
+
 .form{
   border-radius: 25px;
   padding-left: 20px;
@@ -129,11 +137,27 @@
   width:100%;
   height:auto;
 }
+
+.sddivcolour{
+  padding: 12px 2px 12px 2px;
+  background-color: black;
+  border-radius: 8px
+}
+
+
 .column {
   float: left;
-  width:50%;
+  width:60%;
   padding: 10px;
-  height: 500px; /* Should be removed. Only for demonstration */
+  height: 520px; /* Should be removed. Only for demonstration */
+  background-color: #818182;
+  border-radius: 10px;
+}
+.column123 {
+  float: left;
+  width: 40%;
+  padding: 10px;
+  height: 520px; /* Should be removed. Only for demonstration */
   background-color: #818182;
   border-radius: 10px;
 }
@@ -143,6 +167,9 @@
 .trHeading{
   text-align: center;
   font-weight: bold;
+  width: 100%;
+  background-color: orange;
+  border-radius: 10px;
 }
 .alignment{
   background-color: white;
@@ -150,6 +177,10 @@
 }
 .alignPadding{
   padding-left: 10px;
+}
+.alignPadding1{
+  padding-left: 10px;
+  align-items: right;
 }
 
 
@@ -205,7 +236,6 @@ margin-bottom:10px;
 @media (min-width: 768px) {
 .footer-bs .footer-nav, .footer-bs .footer-social, .footer-bs .footer-ns { border-left:solid 1px rgba(255,255,255,0.10); }
 }
-
 
 
 

@@ -939,9 +939,10 @@ body {
   }
 
   .footer-02 {
+
     background: #131719;
-    width: 100%;
-    margin: 0 auto;
+    padding-top: 75px;
+    padding-bottom: 10px;
 }
 
   .menubar-main-div .main-menu a {
@@ -951,5 +952,18 @@ body {
 
 
 
+}
+
+.shipping-d-div{
+  margin-left: 45px;
+}
+
+.footer-sosial-test{
+  margin-left: 175px;
+}
+.list-unstyled {
+  padding-left: 0;
+  list-style: none;
+  display: flex;
 }
 /*# sourceMappingURL=scss.css.map */

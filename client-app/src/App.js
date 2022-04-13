@@ -6,8 +6,10 @@ import CartItemsComponent from './components/component-tksa/CartItemsComponents'
 import ShippingDetailsComponent from "./components/component-tksa/ShippingDetailsComponent";
 import AddShippingDetailsComponent from "./components/component-tksa/AddShippingDetailsComponent";
 import UpdateShippingDetails from "./components/component-tksa/UpdateShippingDetails";
+
 import FooterComponent from "./components/FooterComponent";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import UpdateCardPaymentDetailsComponent from "./components/component-tksa/UpdateCardPaymentDetailsComponent";
 
 
 function App() {
@@ -17,12 +19,13 @@ function App() {
           <div className="container">        
             <HeaderComponent/>  
               <div className="container">
-                <Switch> http://localhost:3000/
+                <Switch> 
                   <Route path = "/" exact component = {CartItemsComponent}></Route>
                   <Route path = "/cartItems" component = {CartItemsComponent}></Route>
                   <Route path = "/shippingDetails" component = {ShippingDetailsComponent}></Route>
                   <Route path = "/add-shippingDetails" component = {AddShippingDetailsComponent}></Route>
                   <Route path = "/update-shippingDetails/:id" component = {UpdateShippingDetails}></Route>
+                  <Route path = "/update-cardPaymentDetails/:id" component = {UpdateCardPaymentDetailsComponent}></Route>
                 </Switch>
               </div>
           </div>

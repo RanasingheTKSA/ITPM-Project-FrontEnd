@@ -38,9 +38,10 @@ class CartItemsComponent extends Component {
         return (
             <div>
                 <div className='a'>
-                <h2 className='text-center'>CART ITEMS</h2> 
+                <h2 className='text-center'>CART ITEMS</h2>
                         
                 <div className='row'>
+                    <div className='sddivcolour'>
                     <table className='tablesize'>
                     <br/> <br/>
                         
@@ -55,7 +56,7 @@ class CartItemsComponent extends Component {
                                                 <table className='tablealign'>
                                                     <tr>
                                                         <td className='imageAlign'>
-                                                            <Card.Img src='../../Asset/26/jpg'/>
+                                                            <Card.Img />
                                                         </td>
                                                         <td className='colunmSize'>
                                                             <Card.Text className='textAlign' >ITEM DESCRIPTION : {cartitem.itemDescription}</Card.Text>
@@ -68,7 +69,7 @@ class CartItemsComponent extends Component {
                                                                     onClick={() => this.deleteCartItem(cartitem.id)}
                                                                     className = "btn btn-danger">
                                                                         DELETE</Button> <br/> */}
-                                                                        <i class="fa fa-trash fa-2x" aria-hidden="true"></i>
+                                                                        <i class="fa fa-trash fa-2x" aria-hidden="true" onClick={() => this.deleteCartItem(cartitem.id)}></i>
                                                         </td>
                                                     </tr>
                                                 </table>
@@ -123,8 +124,10 @@ class CartItemsComponent extends Component {
                             
                         </tr>
                     </table>
-                    
+                    </div>
+                      
                 </div>
+
                 </div>
                 <br/><br/><br/>
             </div>

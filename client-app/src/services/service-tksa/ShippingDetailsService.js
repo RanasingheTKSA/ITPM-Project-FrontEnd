@@ -14,6 +14,11 @@ class ShippingDetailsService{
     getShippingDetailsById(shippingID){
         return axios.get(SHIPPING_DETAILS_BASE_URL + '/' + shippingID);
     }
+
+    updateShippingAddress(shippingDetails, shippingID){
+        return axios.put(SHIPPING_DETAILS_BASE_URL + '/' + shippingID, shippingDetails);
+    }
+   
 }
 
 export default new ShippingDetailsService;
