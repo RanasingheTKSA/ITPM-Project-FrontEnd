@@ -73,16 +73,23 @@
 
 .tablesize{
   width: 100%;
-  background-color: gray;
+  background-color: lightgray;
   border-radius: 5px;
   border: 3px;
 }
 
 .table{
-  background-color: antiquewhite;
   border-radius: 25px;
-  padding-left: 5px;
+  padding-left: 15px;
 }
+.textColours{
+  color: white;
+}
+
+.TableAlign{
+  padding-left: 10px;
+}
+
 .form{
   border-radius: 25px;
   padding-left: 20px;
@@ -130,6 +137,14 @@
   width:100%;
   height:auto;
 }
+
+.sddivcolour{
+  padding: 12px 2px 12px 2px;
+  background-color: black;
+  border-radius: 8px
+}
+
+
 .column {
   float: left;
   width:60%;
@@ -153,7 +168,8 @@
   text-align: center;
   font-weight: bold;
   width: 100%;
-  background-color: #0069d9;
+  background-color: orange;
+  border-radius: 10px;
 }
 .alignment{
   background-color: white;
@@ -161,6 +177,10 @@
 }
 .alignPadding{
   padding-left: 10px;
+}
+.alignPadding1{
+  padding-left: 10px;
+  align-items: right;
 }
 
 
@@ -219,9 +239,6 @@ margin-bottom:10px;
 
 
 
-.div_colour{
-  
-}
 
 
 

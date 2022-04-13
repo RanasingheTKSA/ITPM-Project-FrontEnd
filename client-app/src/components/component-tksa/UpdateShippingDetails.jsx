@@ -48,7 +48,6 @@ class UpdateShippingDetails extends Component {
 
     }
     
-
     changeOwnerNameHandler = (event) => {
         this.setState({ownerName : event.target.value});
     }
@@ -64,12 +63,12 @@ class UpdateShippingDetails extends Component {
     }
 
     cancel(){
-        this.props.history.push('/add-shippingDetails');
+        this.props.history.push('/shippingDetails');
     }
 
     render() {
         return (
-            <div>
+            <div className='a'>
                 
                 <div className= "container">
                     <div className= "row">
@@ -121,6 +120,7 @@ class UpdateShippingDetails extends Component {
                                     <div>
                                         <button className= "btn btn-success" onClick = {this.updateShippingAddress}> UPDATE </button>
                                         <button className= "btn btn-danger" onClick={this.cancel.bind(this)} style = {{marginLeft : "10px"}}>CANCEL</button>
+                                        
                                     </div>
                                     
                                 </form>

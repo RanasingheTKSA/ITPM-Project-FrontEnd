@@ -41,6 +41,7 @@ class CartItemsComponent extends Component {
                 <h2 className='text-center'>CART ITEMS</h2>
                         
                 <div className='row'>
+                    <div className='sddivcolour'>
                     <table className='tablesize'>
                     <br/> <br/>
                         
@@ -122,7 +123,9 @@ class CartItemsComponent extends Component {
 
                             
                         </tr>
-                    </table>  
+                    </table>
+                    </div>
+                      
                 </div>
 
                 </div>
