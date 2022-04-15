@@ -21,6 +21,8 @@ class ShippingDetails extends Component {
 
         this.addCardPaymentDetailsPage =this.addCardPaymentDetailsPage.bind(this);
         this.updateCardPaymentDetails = this.updateCardPaymentDetails.bind(this);
+
+        this.thankYouPage = this.thankYouPage.bind(this);
     }
 
     componentDidMount(){
@@ -47,6 +49,9 @@ class ShippingDetails extends Component {
         this.props.history.push(`/update-cardPaymentDetails/${id}`);
     }
     
+    thankYouPage(){
+        this.props.history.push('/thankYouPage');
+    }
 
     
     render() {
@@ -170,11 +175,11 @@ class ShippingDetails extends Component {
                                                 this.state.card_payment_details.map(
                                                     card_payment_details =>
                                                     <td className='tdWidth' key = {card_payment_details.id}>
-                                                            <i class="fa-solid fa-square-pen fa-2x" 
-                                                                onClick = { () => this.updateCardPaymentDetails(card_payment_details.id)}>
-                                                            </i>
+                                                            <i class="fa-solid fa-square-plus fa-2x" onClick = {this.addCardPaymentDetailsPage}></i>
 
-                                                            <i class="fa-solid fa-square-plus fa-2x" onClick = {this.addCardPaymentDetailsPage} style = { {marginLeft: "5px"} }></i>
+                                                            <i class="fa-solid fa-square-pen fa-2x" 
+                                                                onClick = { () => this.updateCardPaymentDetails(card_payment_details.id)} style = { {marginLeft: "5px"} }>
+                                                            </i>
                                                     </td>
                                                 )                                                                                                                                             
                                             }
@@ -215,7 +220,7 @@ class ShippingDetails extends Component {
                                                 </div><br/>
 
                                                 <div className='buttonAlign'>
-                                                    <button class="btn btn-success">PAY NOW</button>
+                                                    <button class="btn btn-success" onClick={this.thankYouPage}>PAY NOW</button>
                                                 </div>
                                             </form>
                                         </div>

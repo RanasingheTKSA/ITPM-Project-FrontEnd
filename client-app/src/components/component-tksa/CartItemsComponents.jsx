@@ -43,7 +43,7 @@ class CartItemsComponent extends Component {
                 <div className='row'>
                     <div className='sddivcolour'>
                     <table className='tablesize'>
-                    <br/> <br/>
+                    <br/> <br/> 
                         
                         <tr> 
                             <td className='td_size'>
