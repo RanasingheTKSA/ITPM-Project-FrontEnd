@@ -10,6 +10,8 @@ import UpdateShippingDetails from "./components/component-tksa/UpdateShippingDet
 import FooterComponent from "./components/FooterComponent";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import UpdateCardPaymentDetailsComponent from "./components/component-tksa/UpdateCardPaymentDetailsComponent";
+import ThankYouModalComponent from "./components/component-tksa/ThankYouModalComponent";
+import AddCardPaymenrDetailsComponent from "./components/component-tksa/AddCardPaymenrDetailsComponent";
 
 
 function App() {
@@ -20,12 +22,14 @@ function App() {
             <HeaderComponent/>  
               <div className="container">
                 <Switch> 
-                  <Route path = "/" exact component = {CartItemsComponent}></Route>
+                  
                   <Route path = "/cartItems" component = {CartItemsComponent}></Route>
                   <Route path = "/shippingDetails" component = {ShippingDetailsComponent}></Route>
                   <Route path = "/add-shippingDetails" component = {AddShippingDetailsComponent}></Route>
                   <Route path = "/update-shippingDetails/:id" component = {UpdateShippingDetails}></Route>
+                  <Route path = "/add-cardPaymentDetails" component = {AddCardPaymenrDetailsComponent} ></Route>
                   <Route path = "/update-cardPaymentDetails/:id" component = {UpdateCardPaymentDetailsComponent}></Route>
+                  <Route path = "/thankYouPage" component = {ThankYouModalComponent}></Route>
                 </Switch>
               </div>
           </div>

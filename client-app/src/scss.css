@@ -966,4 +966,14 @@ body {
   list-style: none;
   display: flex;
 }
+
+.modalTextAlignment{
+  text-align: center;
+}
+.modalParaAlignment{
+  text-align: center;
+  font-size: medium;
+  font-style: oblique; 
+}
+
 /*# sourceMappingURL=scss.css.map */

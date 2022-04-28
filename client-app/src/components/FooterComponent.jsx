@@ -37,8 +37,9 @@ class FooterComponent extends Component {
                                 <div class="row">
                                     <div class="col-md-12 col-lg-8 mb-md-0 mb-4">
                                         <h2 class="footer-heading"><a href="#" class="logo">WEDDIGN WARES</a></h2>
-                                        <p>Mainly focuses on the luxurious wedding wear for the groom and his bridal.
-                                        Mainly focuses on the luxurious wedding wear for the groom and his bridal. </p>
+                                        <p> Mainly focuses on the luxurious wedding wear for the groom and his bridal.
+                                            We offer excellent client service and the highest quality goods as requested. 
+                                        </p>
                                         <a href="#">read more <span class="ion-ios-arrow-round-forward"></span></a>
                                         {/* go to the read more file */}
                                     </div>
