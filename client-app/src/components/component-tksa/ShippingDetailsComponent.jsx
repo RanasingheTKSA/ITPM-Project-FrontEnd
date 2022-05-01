@@ -1,5 +1,4 @@
 import React, { Component, useState } from 'react';
-import DatePicker from "react-datepicker";
 
 import "react-datepicker/dist/react-datepicker.css";
 import ShippingDetailsService from '../../services/service-tksa/ShippingDetailsService';
@@ -118,9 +117,10 @@ class ShippingDetails extends Component {
                                                 this.state.shipping_details.map(
                                                     shipping_details =>
                                                     <td className='tdWidth' key = {shipping_details.id}>
+                                                            <i class="fa-solid fa-square-plus fa-2x" onClick = {this.addShippingDetails}></i>
                                                             <i class="fa-solid fa-square-pen fa-2x" 
                                                                 onClick={ () => this.updateShippingDetails(shipping_details.id)} 
-                                                                style = {{ marginLeft: "25px" }}>
+                                                                style = {{ marginLeft: "5px" }}>
                                                             </i>
                                                     </td>
                                                 )                                                                                                                                             
