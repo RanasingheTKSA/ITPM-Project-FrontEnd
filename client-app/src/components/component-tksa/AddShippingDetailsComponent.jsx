@@ -1,6 +1,28 @@
 import React, { Component } from "react";
 import ShippingDetailsService from "../../services/service-tksa/ShippingDetailsService";
 
+const validation = ({ error, ...rest }) => {
+  let checkValidation = false;
+
+  Object.values(error).forEach((val) => {
+    if (val.length > 0) {
+      checkValidation = false;
+    } else {
+      checkValidation = true;
+    }
+  });
+
+  Object.values(rest).forEach((val) => {
+    if (val === null) {
+      checkValidation = false;
+    } else {
+      checkValidation = true;
+    }
+  });
+
+  return checkValidation;
+};
+
 class AddShippingDetailsComponent extends Component {
   constructor(props) {
     super(props);
@@ -10,6 +32,13 @@ class AddShippingDetailsComponent extends Component {
       phoneNumber: "",
       shippingAddress: "",
       zipCode: "",
+
+      error: {
+        ownerName: "",
+        phoneNumber: "",
+        shippingAddress: "",
+        zipCode: "",
+      },
     };
     this.changeOwnerNameHandler = this.changeOwnerNameHandler.bind(this);
     this.changePhoneNumberHandler = this.changePhoneNumberHandler.bind(this);
@@ -19,6 +48,55 @@ class AddShippingDetailsComponent extends Component {
 
     this.saveShippingAddress = this.saveShippingAddress.bind(this);
   }
+
+  onFormSubmit = (event) => {
+    event.preventDefault();
+
+    if (validation(this.state)) {
+      console.log(this.state);
+    } else {
+      console.log("Error occured");
+    }
+  };
+
+  formObject = (event) => {
+    event.preventDefault();
+
+    const { name, value } = event.target;
+    let error = { ...this.state.error };
+
+    switch (name) {
+      case "ownerName":
+        error.ownerName =
+          value.length < 5 ? "Name should be 5 or more characaters long" : "";
+        break;
+      case "phoneNumber":
+        error.phoneNumber =
+          value.length < 10
+            ? "Phone Number should be similler to the 0112xxxxxx"
+            : "";
+        break;
+      case "shippingAddress":
+        error.shippingAddress =
+          value.length < 10
+            ? "Address should have the Address No, Lane Name, City Name, County Name"
+            : "";
+        break;
+      case "zipCode":
+        error.zipCode =
+          value.length < 5
+            ? "Zip Code should 5 characaters long and similler to the 10xxx"
+            : "";
+        break;
+      default:
+        break;
+    }
+
+    this.setState({
+      error,
+      [name]: value,
+    });
+  };
 
   saveShippingAddress = (e) => {
     e.preventDefault();
@@ -54,6 +132,7 @@ class AddShippingDetailsComponent extends Component {
   }
 
   render() {
+    const { error } = this.state;
     return (
       <div className="a">
         <div className="container">
@@ -62,41 +141,80 @@ class AddShippingDetailsComponent extends Component {
               <h3 className="text-center"> ADD NEW SHIPPING ADDRESS</h3>
 
               <div className="card-body">
-                <form>
+                <form onSubmit={this.onFormSubmit}>
                   <div className="form-group">
                     <label> CUSTOMER NAME </label> <br />
                     <input
                       placeholder=" customer name"
-                      name="customer-name"
-                      className="form-control"
+                      //name="customer_name"
+                      //className="form-control"
                       value={this.state.ownerName}
-                      onChange={this.changeOwnerNameHandler}
+                      //onChange={this.changeOwnerNameHandler}
                       required
+                      type="text"
+                      name="ownerName"
+                      onChange={this.formObject}
+                      className={
+                        error.ownerName.length > 0
+                          ? "is-invalid form-control"
+                          : "form-control"
+                      }
                     />
+                    {error.ownerName.length > 0 && (
+                      <span className="invalid-feedback">
+                        {error.ownerName}
+                      </span>
+                    )}
                   </div>{" "}
                   <br />
                   <div className="form-group">
                     <label> PHONE NUMBER </label> <br />
                     <input
                       placeholder=" phone number"
-                      name="phone-number"
-                      className="form-control"
+                      //name="phone_number"
+                      //className="form-control"
                       value={this.state.phoneNumber}
-                      onChange={this.changePhoneNumberHandler}
+                      //onChange={this.changePhoneNumberHandler}
                       required
+                      type="text"
+                      name="phoneNumber"
+                      onChange={this.formObject}
+                      className={
+                        error.phoneNumber.length > 0
+                          ? "is-invalid form-control"
+                          : "form-control"
+                      }
                     />
+                    {error.phoneNumber.length > 0 && (
+                      <span className="invalid-feedback">
+                        {error.phoneNumber}
+                      </span>
+                    )}
                   </div>
                   <br />
                   <div className="form-group">
                     <label> SHIPPING ADDRESS </label> <br />
                     <input
                       placeholder=" shipping address"
-                      name="shipping-address"
-                      className="form-control"
+                      //name="shipping_address"
+                      //className="form-control"
                       value={this.state.shippingAddress}
-                      onChange={this.changeShippingAddressHandler}
+                      //onChange={this.changeShippingAddressHandler}
                       required
+                      type="text"
+                      name="shippingAddress"
+                      onChange={this.formObject}
+                      className={
+                        error.shippingAddress.length > 0
+                          ? "is-invalid form-control"
+                          : "form-control"
+                      }
                     />
+                    {error.shippingAddress.length > 0 && (
+                      <span className="invalid-feedback">
+                        {error.shippingAddress}
+                      </span>
+                    )}
                   </div>{" "}
                   <br />
                   <div className="form-group">
@@ -104,12 +222,23 @@ class AddShippingDetailsComponent extends Component {
                     <br />
                     <input
                       placeholder="zip code"
-                      name="zip-code"
-                      className="form-control"
+                      //name="zip_code"
+                      //className="form-control"
                       value={this.state.zipCode}
-                      onChange={this.changeZipCodeHandler}
+                      //onChange={this.changeZipCodeHandler}
                       required
+                      type="text"
+                      name="zipCode"
+                      onChange={this.formObject}
+                      className={
+                        error.zipCode.length > 0
+                          ? "is-invalid form-control"
+                          : "form-control"
+                      }
                     />
+                    {error.zipCode.length > 0 && (
+                      <span className="invalid-feedback">{error.zipCode}</span>
+                    )}
                   </div>{" "}
                   <br />
                   <div>

@@ -11,7 +11,7 @@ class CartItemsComponent extends Component {
     this.state = {
       cart_item: [],
       subTotalPrice: 0.0,
-      oderShippingFee: 200,
+      oderShippingFee: 500,
     };
     this.deleteCartItem = this.deleteCartItem.bind(this);
     this.shippingDetails = this.shippingDetails.bind(this);
