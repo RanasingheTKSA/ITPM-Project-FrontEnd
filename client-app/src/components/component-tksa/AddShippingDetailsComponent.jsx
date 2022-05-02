@@ -39,6 +39,8 @@ class AddShippingDetailsComponent extends Component {
         shippingAddress: "",
         zipCode: "",
       },
+
+      disabled: true,
     };
     this.changeOwnerNameHandler = this.changeOwnerNameHandler.bind(this);
     this.changePhoneNumberHandler = this.changePhoneNumberHandler.bind(this);
@@ -65,6 +67,11 @@ class AddShippingDetailsComponent extends Component {
     const { name, value } = event.target;
     let error = { ...this.state.error };
 
+    if (event.target.value.zipCode != name) {
+      this.setState({
+        disabled: false,
+      });
+    }
     switch (name) {
       case "ownerName":
         error.ownerName =
@@ -138,6 +145,7 @@ class AddShippingDetailsComponent extends Component {
         <div className="container">
           <div className="row">
             <div className="card col-md-6 offset-md-3 offset-md-3">
+              <br />
               <h3 className="text-center"> ADD NEW SHIPPING ADDRESS</h3>
 
               <div className="card-body">
@@ -146,10 +154,7 @@ class AddShippingDetailsComponent extends Component {
                     <label> CUSTOMER NAME </label> <br />
                     <input
                       placeholder=" customer name"
-                      //name="customer_name"
-                      //className="form-control"
                       value={this.state.ownerName}
-                      //onChange={this.changeOwnerNameHandler}
                       required
                       type="text"
                       name="ownerName"
@@ -171,10 +176,7 @@ class AddShippingDetailsComponent extends Component {
                     <label> PHONE NUMBER </label> <br />
                     <input
                       placeholder=" phone number"
-                      //name="phone_number"
-                      //className="form-control"
                       value={this.state.phoneNumber}
-                      //onChange={this.changePhoneNumberHandler}
                       required
                       type="text"
                       name="phoneNumber"
@@ -196,10 +198,7 @@ class AddShippingDetailsComponent extends Component {
                     <label> SHIPPING ADDRESS </label> <br />
                     <input
                       placeholder=" shipping address"
-                      //name="shipping_address"
-                      //className="form-control"
                       value={this.state.shippingAddress}
-                      //onChange={this.changeShippingAddressHandler}
                       required
                       type="text"
                       name="shippingAddress"
@@ -222,10 +221,7 @@ class AddShippingDetailsComponent extends Component {
                     <br />
                     <input
                       placeholder="zip code"
-                      //name="zip_code"
-                      //className="form-control"
                       value={this.state.zipCode}
-                      //onChange={this.changeZipCodeHandler}
                       required
                       type="text"
                       name="zipCode"
@@ -245,6 +241,7 @@ class AddShippingDetailsComponent extends Component {
                     <button
                       className="btn btn-success"
                       onClick={this.saveShippingAddress}
+                      disabled={this.state.disabled}
                     >
                       {" "}
                       SAVE{" "}
