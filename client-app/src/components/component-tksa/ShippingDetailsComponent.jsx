@@ -62,6 +62,8 @@ class ShippingDetails extends Component {
 
     this.thankYouPage = this.thankYouPage.bind(this);
     this.saveShippingAddress = this.saveShippingAddress.bind(this);
+
+    this.paymentComplete = this.paymentComplete.bind(this);
   }
 
   onFormSubmit = (event) => {
@@ -164,6 +166,9 @@ class ShippingDetails extends Component {
   handleModel() {
     this.setState({ show: !this.state.show });
   }
+  paymentComplete() {
+    this.props.history.push("/cartItems");
+  }
 
   saveShippingAddress = (e) => {
     e.preventDefault();
@@ -217,14 +222,6 @@ class ShippingDetails extends Component {
                       class="fa-solid fa-square-plus fa-2x"
                       onClick={this.addShippingDetails}
                       style={{ marginLeft: "25px" }}
-                    ></i>
-
-                    <i
-                      class="fa-solid fa-square-plus fa-2x"
-                      onClick={() => {
-                        this.handleModel();
-                      }}
-                      style={{ marginLeft: "5px" }}
                     ></i>
 
                     <Table
@@ -299,7 +296,7 @@ class ShippingDetails extends Component {
                           )}
 
                           {/* add new address in shipping details page */}
-                          <Modal
+                          {/* <Modal
                             show={this.state.show}
                             onHide={() => this.handleModel()}
                           >
@@ -417,7 +414,7 @@ class ShippingDetails extends Component {
                                 SAVE{" "}
                               </button>
                             </Modal.Footer>
-                          </Modal>
+                          </Modal> */}
                         </tr>
                       </tbody>
                     </Table>
@@ -564,6 +561,56 @@ class ShippingDetails extends Component {
                               PAY NOW
                             </button>
                           </div>
+                          {/* <i
+                            class="fa-solid fa-square-plus fa-2x"
+                            onClick={() => {
+                              this.handleModel();
+                            }}
+                            style={{ marginLeft: "5px" }}
+                          ></i> */}
+                          <div className="buttonAlign">
+                            <Button
+                              class="btn btn-success"
+                              onClick={() => {
+                                this.handleModel();
+                              }}
+                            >
+                              PAY NOW
+                            </Button>
+                          </div>
+                          <Modal
+                            show={this.state.show}
+                            onHide={() => this.handleModel()}
+                          >
+                            <Modal.Header>
+                              <h4> THANK YOU! </h4>
+                            </Modal.Header>
+                            <Modal.Body>
+                              <p className="modalParaAlignment">
+                                The payment was completed successfully, and the
+                                payment report was delivered to the email
+                                address provided. We offer excellent client
+                                service and the highest quality goods as
+                                requested.
+                                <br />
+                                <br />
+                                Please stay with us.
+                                <br />
+                                <br />
+                                Thank you so much for getting in touch with us!
+                              </p>
+                            </Modal.Body>
+                            <Modal.Footer>
+                              <Button
+                                class="btn btn-success"
+                                onClick={() => {
+                                  this.paymentComplete();
+                                }}
+                              >
+                                HOME
+                              </Button>
+                            </Modal.Footer>
+                          </Modal>
                         </form>
                       </div>
                     </div>
