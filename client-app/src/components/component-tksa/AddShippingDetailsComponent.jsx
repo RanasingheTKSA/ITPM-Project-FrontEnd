@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import ShippingDetailsService from "../../services/service-tksa/ShippingDetailsService";
 
+const emailValidationStyle = RegExp(/^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$/);
 const validation = ({ error, ...rest }) => {
   let checkValidation = false;
 
@@ -30,12 +31,14 @@ class AddShippingDetailsComponent extends Component {
     this.state = {
       ownerName: "",
       phoneNumber: "",
+      email: "",
       shippingAddress: "",
       zipCode: "",
 
       error: {
         ownerName: "",
         phoneNumber: "",
+        email: "",
         shippingAddress: "",
         zipCode: "",
       },
@@ -83,6 +86,11 @@ class AddShippingDetailsComponent extends Component {
             ? "Phone Number should be similler to the 0112xxxxxx"
             : "";
         break;
+      case "email":
+        error.email = emailValidationStyle.test(value)
+          ? ""
+          : "Email is not valid";
+        break;
       case "shippingAddress":
         error.shippingAddress =
           value.length < 10
@@ -110,6 +118,7 @@ class AddShippingDetailsComponent extends Component {
     let shippingDetails = {
       ownerName: this.state.ownerName,
       phoneNumber: this.state.phoneNumber,
+      email: this.state.email,
       shippingAddress: this.state.shippingAddress,
       zipCode: this.state.zipCode,
     };
@@ -127,6 +136,11 @@ class AddShippingDetailsComponent extends Component {
   changePhoneNumberHandler = (event) => {
     this.setState({ phoneNumber: event.target.value });
   };
+
+  changeEmailAddressHandler = (event) => {
+    this.setState({ email: event.target.value });
+  };
+
   changeShippingAddressHandler = (event) => {
     this.setState({ shippingAddress: event.target.value });
   };
@@ -191,6 +205,26 @@ class AddShippingDetailsComponent extends Component {
                       <span className="invalid-feedback">
                         {error.phoneNumber}
                       </span>
+                    )}
+                  </div>
+                  <br />
+                  <div className="form-group">
+                    <label> EMAIL ADDRESS </label> <br />
+                    <input
+                      placeholder=" email address"
+                      value={this.state.email}
+                      required
+                      type="text"
+                      name="email"
+                      onChange={this.formObject}
+                      className={
+                        error.email.length > 0
+                          ? "is-invalid form-control"
+                          : "form-control"
+                      }
+                    />
+                    {error.email.length > 0 && (
+                      <span className="invalid-feedback">{error.email}</span>
                     )}
                   </div>
                   <br />

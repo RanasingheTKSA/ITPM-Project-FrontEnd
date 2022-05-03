@@ -28,6 +28,7 @@ class AddCardPaymenrDetailsComponent extends Component {
     this.setState({
       startDate: date,
     });
+    console.log(this.state.startDate);
   }
 
   onFormSubmit(e) {
@@ -123,8 +124,7 @@ class AddCardPaymenrDetailsComponent extends Component {
                       className="btn btn-success"
                       onClick={this.saveCardPaymentDetails}
                     >
-                      {" "}
-                      SAVE{" "}
+                      SAVE
                     </button>
                     <button
                       className="btn btn-danger"

@@ -42,6 +42,7 @@ class ShippingDetails extends Component {
 
       ownerName: "",
       phoneNumber: "",
+      email: "",
       shippingAddress: "",
       zipCode: "",
 
@@ -56,13 +57,9 @@ class ShippingDetails extends Component {
     };
     this.addShippingDetails = this.addShippingDetails.bind(this);
     this.updateShippingDetails = this.updateShippingDetails.bind(this);
-
     this.addCardPaymentDetailsPage = this.addCardPaymentDetailsPage.bind(this);
     this.updateCardPaymentDetails = this.updateCardPaymentDetails.bind(this);
-
     this.thankYouPage = this.thankYouPage.bind(this);
-    this.saveShippingAddress = this.saveShippingAddress.bind(this);
-
     this.paymentComplete = this.paymentComplete.bind(this);
   }
 
@@ -170,35 +167,6 @@ class ShippingDetails extends Component {
     this.props.history.push("/cartItems");
   }
 
-  saveShippingAddress = (e) => {
-    e.preventDefault();
-    let shippingDetails = {
-      ownerName: this.state.ownerName,
-      phoneNumber: this.state.phoneNumber,
-      shippingAddress: this.state.shippingAddress,
-      zipCode: this.state.zipCode,
-    };
-
-    console.log("shippingDetails =>" + JSON.stringify(shippingDetails));
-    ShippingDetailsService.addShippingDetails(shippingDetails).then((res) => {
-      this.props.history.push("/shippingDetails");
-    });
-  };
-
-  changeOwnerNameHandler = (event) => {
-    this.setState({ ownerName: event.target.value });
-  };
-
-  changePhoneNumberHandler = (event) => {
-    this.setState({ phoneNumber: event.target.value });
-  };
-  changeShippingAddressHandler = (event) => {
-    this.setState({ shippingAddress: event.target.value });
-  };
-  changeZipCodeHandler = (event) => {
-    this.setState({ zipCode: event.target.value });
-  };
-
   cancel() {
     this.props.history.push("/shippingDetails");
   }
@@ -235,6 +203,7 @@ class ShippingDetails extends Component {
                         <tr>
                           <th>CUSTOMER NAME</th>
                           <th>PHONE NUMBER</th>
+                          {/* <th>EMAIL ADDRESS</th> */}
                           <th>SHIPPING ADDRESS</th>
                           <th>ZIP CODE</th>
                           <th>ACTION</th>
@@ -245,7 +214,7 @@ class ShippingDetails extends Component {
                           {this.state.shipping_details.map(
                             (shipping_details) => (
                               <td className="tdWidth" key={shipping_details.id}>
-                                <label>{shipping_details.ownerName}</label>{" "}
+                                <label>{shipping_details.ownerName}</label>
                                 <br />
                               </td>
                             )
@@ -254,7 +223,7 @@ class ShippingDetails extends Component {
                           {this.state.shipping_details.map(
                             (shipping_details) => (
                               <td className="tdWidth" key={shipping_details.id}>
-                                <label>{shipping_details.phoneNumber}</label>{" "}
+                                <label>{shipping_details.phoneNumber}</label>
                                 <br />
                               </td>
                             )
@@ -265,7 +234,7 @@ class ShippingDetails extends Component {
                               <td className="tdWidth" key={shipping_details.id}>
                                 <label>
                                   {shipping_details.shippingAddress}
-                                </label>{" "}
+                                </label>
                                 <br />
                               </td>
                             )
@@ -294,127 +263,6 @@ class ShippingDetails extends Component {
                               </td>
                             )
                           )}
-
-                          {/* add new address in shipping details page */}
-                          {/* <Modal
-                            show={this.state.show}
-                            onHide={() => this.handleModel()}
-                          >
-                            <Modal.Header closeButton>
-                              <h4> ADD NEW SHIPPING ADDRESS</h4>
-                            </Modal.Header>
-                            <Modal.Body>
-                              <form onSubmit={this.onFormSubmit}>
-                                <div className="form-group">
-                                  <label> CUSTOMER NAME </label> <br />
-                                  <input
-                                    placeholder=" customer name"
-                                    value={this.state.ownerName}
-                                    required
-                                    type="text"
-                                    name="ownerName"
-                                    onChange={this.formObject}
-                                    className={
-                                      error.ownerName.length > 0
-                                        ? "is-invalid form-control"
-                                        : "form-control"
-                                    }
-                                  />
-                                  {error.ownerName.length > 0 && (
-                                    <span className="invalid-feedback">
-                                      {error.ownerName}
-                                    </span>
-                                  )}
-                                </div>{" "}
-                                <br />
-                                <div className="form-group">
-                                  <label> PHONE NUMBER </label> <br />
-                                  <input
-                                    placeholder=" phone number"
-                                    value={this.state.phoneNumber}
-                                    required
-                                    type="text"
-                                    name="phoneNumber"
-                                    onChange={this.formObject}
-                                    className={
-                                      error.phoneNumber.length > 0
-                                        ? "is-invalid form-control"
-                                        : "form-control"
-                                    }
-                                  />
-                                  {error.phoneNumber.length > 0 && (
-                                    <span className="invalid-feedback">
-                                      {error.phoneNumber}
-                                    </span>
-                                  )}
-                                </div>
-                                <br />
-                                <div className="form-group">
-                                  <label> SHIPPING ADDRESS </label> <br />
-                                  <input
-                                    placeholder=" shipping address"
-                                    value={this.state.shippingAddress}
-                                    required
-                                    type="text"
-                                    name="shippingAddress"
-                                    onChange={this.formObject}
-                                    className={
-                                      error.shippingAddress.length > 0
-                                        ? "is-invalid form-control"
-                                        : "form-control"
-                                    }
-                                  />
-                                  {error.shippingAddress.length > 0 && (
-                                    <span className="invalid-feedback">
-                                      {error.shippingAddress}
-                                    </span>
-                                  )}
-                                </div>{" "}
-                                <br />
-                                <div className="form-group">
-                                  <label> ZIP CODE </label>
-                                  <br />
-                                  <input
-                                    placeholder="zip code"
-                                    value={this.state.zipCode}
-                                    required
-                                    type="text"
-                                    name="zipCode"
-                                    onChange={this.formObject}
-                                    className={
-                                      error.zipCode.length > 0
-                                        ? "is-invalid form-control"
-                                        : "form-control"
-                                    }
-                                  />
-                                  {error.zipCode.length > 0 && (
-                                    <span className="invalid-feedback">
-                                      {error.zipCode}
-                                    </span>
-                                  )}
-                                </div>{" "}
-                                <br />
-                                <div></div>
-                              </form>
-                            </Modal.Body>
-                            <Modal.Footer>
-                              <Button
-                                className="btn btn-danger"
-                                onClick={() => {
-                                  this.handleModel();
-                                }}
-                              >
-                                CANCEL
-                              </Button>
-                              <button
-                                className="btn btn-success"
-                                onClick={this.saveShippingAddress}
-                              >
-                                {" "}
-                                SAVE{" "}
-                              </button>
-                            </Modal.Footer>
-                          </Modal> */}
                         </tr>
                       </tbody>
                     </Table>
@@ -553,14 +401,14 @@ class ShippingDetails extends Component {
                           </div>
                           <br />
 
-                          <div className="buttonAlign">
+                          {/* <div className="buttonAlign">
                             <button
                               class="btn btn-success"
                               onClick={this.thankYouPage}
                             >
                               PAY NOW
                             </button>
-                          </div>
+                          </div> */}
                           {/* <i
                             class="fa-solid fa-square-plus fa-2x"
                             onClick={() => {

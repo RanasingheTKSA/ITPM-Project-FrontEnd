@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-
 import ShippingDetailsService from "../../services/service-tksa/ShippingDetailsService";
 
+const emailValidationStyle = RegExp(/^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$/);
 const validation = ({ error, ...rest }) => {
   let checkValidation = false;
 
@@ -32,12 +32,14 @@ class UpdateShippingDetails extends Component {
       id: this.props.match.params.id,
       ownerName: "",
       phoneNumber: "",
+      email: "",
       shippingAddress: "",
       zipCode: "",
 
       error: {
         ownerName: "",
         phoneNumber: "",
+        email: "",
         shippingAddress: "",
         zipCode: "",
       },
@@ -78,6 +80,11 @@ class UpdateShippingDetails extends Component {
             ? "Phone Number should be similler to the 0112xxxxxx"
             : "";
         break;
+      case "email":
+        error.email = emailValidationStyle.test(value)
+          ? ""
+          : "Email is not valid";
+        break;
       case "shippingAddress":
         error.shippingAddress =
           value.length < 10
@@ -106,6 +113,7 @@ class UpdateShippingDetails extends Component {
       this.setState({
         ownerName: shippingDetails.ownerName,
         phoneNumber: shippingDetails.phoneNumber,
+        email: shippingDetails.email,
         shippingAddress: shippingDetails.shippingAddress,
         zipCode: shippingDetails.zipCode,
       });
@@ -117,6 +125,7 @@ class UpdateShippingDetails extends Component {
     let shippingDetails = {
       ownerName: this.state.ownerName,
       phoneNumber: this.state.phoneNumber,
+      email: this.state.email,
       shippingAddress: this.state.shippingAddress,
       zipCode: this.state.zipCode,
     };
@@ -137,6 +146,11 @@ class UpdateShippingDetails extends Component {
   changePhoneNumberHandler = (event) => {
     this.setState({ phoneNumber: event.target.value });
   };
+
+  changeEmailAddressHandler = (event) => {
+    this.setState({ email: event.target.value });
+  };
+
   changeShippingAddressHandler = (event) => {
     this.setState({ shippingAddress: event.target.value });
   };
@@ -164,11 +178,7 @@ class UpdateShippingDetails extends Component {
                     <label> CUSTOMER NAME </label> <br />
                     <input
                       placeholder=" customer name"
-                      //name="customer-name"
-                      //className="form-control"
                       value={this.state.ownerName}
-                      //onChange={this.changeOwnerNameHandler}
-
                       required
                       type="text"
                       name="ownerName"
@@ -190,11 +200,7 @@ class UpdateShippingDetails extends Component {
                     <label> PHONE NUMBER </label> <br />
                     <input
                       placeholder=" phone number"
-                      //name="phone-number"
-                      //className="form-control"
                       value={this.state.phoneNumber}
-                      //onChange={this.changePhoneNumberHandler}
-
                       required
                       type="text"
                       name="phoneNumber"
@@ -213,14 +219,30 @@ class UpdateShippingDetails extends Component {
                   </div>
                   <br />
                   <div className="form-group">
+                    <label> EMAIL ADDRESS </label> <br />
+                    <input
+                      placeholder=" email address "
+                      value={this.state.email}
+                      required
+                      type="text"
+                      name="email"
+                      onChange={this.formObject}
+                      className={
+                        error.email.length > 0
+                          ? "is-invalid form-control"
+                          : "form-control"
+                      }
+                    />
+                    {error.email.length > 0 && (
+                      <span className="invalid-feedback">{error.email}</span>
+                    )}
+                  </div>
+                  <br />
+                  <div className="form-group">
                     <label> SHIPPING ADDRESS </label> <br />
                     <input
                       placeholder=" shipping address"
-                      //name="shipping-address"
-                      //className="form-control"
                       value={this.state.shippingAddress}
-                      //onChange={this.changeShippingAddressHandler}
-
                       required
                       type="text"
                       name="shippingAddress"
@@ -243,11 +265,7 @@ class UpdateShippingDetails extends Component {
                     <br />
                     <input
                       placeholder="zip code"
-                      //name="zip-code"
-                      //className="form-control"
                       value={this.state.zipCode}
-                      //onChange={this.changeZipCodeHandler}
-
                       required
                       type="text"
                       name="zipCode"
