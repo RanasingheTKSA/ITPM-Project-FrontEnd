@@ -8,7 +8,6 @@ import AddShippingDetailsComponent from "./components/component-tksa/AddShipping
 import UpdateShippingDetails from "./components/component-tksa/UpdateShippingDetails";
 
 import FooterComponent from "./components/FooterComponent";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import UpdateCardPaymentDetailsComponent from "./components/component-tksa/UpdateCardPaymentDetailsComponent";
 import ThankYouModalComponent from "./components/component-tksa/ThankYouModalComponent";
 import AddCardPaymenrDetailsComponent from "./components/component-tksa/AddCardPaymenrDetailsComponent";

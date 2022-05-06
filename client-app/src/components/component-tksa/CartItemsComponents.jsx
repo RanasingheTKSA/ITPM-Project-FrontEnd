@@ -83,7 +83,7 @@ class CartItemsComponent extends Component {
                                 <table className="tablealign">
                                   <tr>
                                     <td className="imageAlign">
-                                      <Card.Img />
+                                      <CardImg src={cartitem.image}></CardImg>
                                     </td>
                                     <td className="colunmSize">
                                       <Card.Text className="textAlign">

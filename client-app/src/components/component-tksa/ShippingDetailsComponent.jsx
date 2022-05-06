@@ -1,12 +1,16 @@
 import React, { Component, useState } from "react";
-
 import "react-datepicker/dist/react-datepicker.css";
 import ShippingDetailsService from "../../services/service-tksa/ShippingDetailsService";
 import CardPaymentDetailsService from "../../services/service-tksa/CardPaymentDetailsService";
 import CartItemsService from "../../services/service-tksa/CartItemsService";
 
 import { Button, Table, Form, Modal } from "react-bootstrap";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import jsPDF from "jspdf";
+import "jspdf-autotable";
+
+// import Pdf from "react-to-pdf";
+
+// const ref = React.createRef();
 
 const validation = ({ error, ...rest }) => {
   let checkValidation = false;
@@ -163,6 +167,7 @@ class ShippingDetails extends Component {
   handleModel() {
     this.setState({ show: !this.state.show });
   }
+
   paymentComplete() {
     this.props.history.push("/cartItems");
   }
@@ -170,6 +175,37 @@ class ShippingDetails extends Component {
   cancel() {
     this.props.history.push("/shippingDetails");
   }
+
+  //generate PDF file
+  exportPDF = () => {
+    const unit = "pt";
+    const size = "A4";
+    const orientation = "portrait";
+
+    const marginLeft = 40;
+    const doc = new jsPDF(orientation, unit, size);
+    doc.setFontSize(15);
+
+    const title = "LIST OF THE ITEMS";
+    const headers = [["ITEM NAME", "DESCRIPTION", "SIZE", "COLOUR", "PRICE"]];
+    const data = this.state.cart_item.map((CPDF) => [
+      CPDF.itmeName,
+      CPDF.itemDescription,
+      CPDF.itemSize,
+      CPDF.itemColour,
+      CPDF.itemPrice,
+    ]);
+
+    let content = {
+      startY: 50,
+      head: headers,
+      body: data,
+    };
+
+    doc.text(title, marginLeft, 40);
+    doc.autoTable(content);
+    doc.save("ItemList.pdf");
+  };
 
   render() {
     const { error } = this.state;
@@ -191,7 +227,7 @@ class ShippingDetails extends Component {
                       onClick={this.addShippingDetails}
                       style={{ marginLeft: "25px" }}
                     ></i>
-
+                    {/* <div ref={ref}> */}
                     <Table
                       striped
                       bordered
@@ -266,6 +302,12 @@ class ShippingDetails extends Component {
                         </tr>
                       </tbody>
                     </Table>
+                    {/* </div> */}
+                    {/* <Pdf targetRef={ref} filename="code-example.pdf">
+                      {({ toPdf }) => (
+                        <button onClick={toPdf}>Generate Pdf</button>
+                      )}
+                    </Pdf> */}
                     <br />
                     <br />
 
@@ -426,6 +468,7 @@ class ShippingDetails extends Component {
                               PAY NOW
                             </Button>
                           </div>
+
                           <Modal
                             show={this.state.show}
                             onHide={() => this.handleModel()}
@@ -449,6 +492,12 @@ class ShippingDetails extends Component {
                               </p>
                             </Modal.Body>
                             <Modal.Footer>
+                              <Button
+                                className="btn btn-dark"
+                                onClick={() => this.exportPDF()}
+                              >
+                                PDF LIST
+                              </Button>
                               <Button
                                 class="btn btn-success"
                                 onClick={() => {
