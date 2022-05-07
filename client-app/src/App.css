@@ -66,6 +66,8 @@
 }
 .legendalign, .buttonAlign{
   text-align: center;
+  padding-top: 10px;
+  margin-top: 20px;
 }
 
 
