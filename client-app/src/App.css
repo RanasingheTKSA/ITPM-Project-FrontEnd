@@ -8554,3 +8554,31 @@ footer {
     @media (max-width: 1199.98px) {
       .footer-02 .border-left {
         border: none; } }
+
+
+        .gradient-custom {
+          /* fallback for old browsers */
+          background: #6a11cb;
+          
+          /* Chrome 10-25, Safari 5.1-6 */
+          background: -webkit-linear-gradient(to right, rgba(106, 17, 203, 1), rgba(37, 117, 252, 1));
+          
+          /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+          background: linear-gradient(to right, rgba(106, 17, 203, 1), rgba(37, 117, 252, 1))
+          }
+
+          .logcontainer{
+            padding: 0px 265px 76px 265px;
+            width: 65%;
+            margin: 0 auto;
+          }
+          .our-se-bglog{
+            height: 300px;
+            border: 1px solid;
+            border-radius: 25px;
+            /* width: 262px; */
+            margin-bottom: 25px;
+          }
+          .ataglog{
+            font-size: 30px;
+          }
