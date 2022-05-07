@@ -8,10 +8,6 @@ import { Button, Table, Form, Modal } from "react-bootstrap";
 import jsPDF from "jspdf";
 import "jspdf-autotable";
 
-// import Pdf from "react-to-pdf";
-
-// const ref = React.createRef();
-
 const validation = ({ error, ...rest }) => {
   let checkValidation = false;
 
@@ -443,21 +439,6 @@ class ShippingDetails extends Component {
                           </div>
                           <br />
 
-                          {/* <div className="buttonAlign">
-                            <button
-                              class="btn btn-success"
-                              onClick={this.thankYouPage}
-                            >
-                              PAY NOW
-                            </button>
-                          </div> */}
-                          {/* <i
-                            class="fa-solid fa-square-plus fa-2x"
-                            onClick={() => {
-                              this.handleModel();
-                            }}
-                            style={{ marginLeft: "5px" }}
-                          ></i> */}
                           <div className="buttonAlign">
                             <Button
                               class="btn btn-success"
@@ -473,16 +454,17 @@ class ShippingDetails extends Component {
                             show={this.state.show}
                             onHide={() => this.handleModel()}
                           >
-                            <Modal.Header>
+                            <Modal.Header closeButton>
                               <h4> THANK YOU! </h4>
                             </Modal.Header>
                             <Modal.Body>
                               <p className="modalParaAlignment">
-                                The payment was completed successfully, and the
-                                payment report was delivered to the email
-                                address provided. We offer excellent client
-                                service and the highest quality goods as
-                                requested.
+                                The payment was completed, and the payment
+                                report was delivered to the email address
+                                provided. We offer excellent client service and
+                                the highest quality goods as requested. Please
+                                stay with us. Thank you so much for getting in
+                                touch with us!
                                 <br />
                                 <br />
                                 Please stay with us.
@@ -504,7 +486,7 @@ class ShippingDetails extends Component {
                                   this.paymentComplete();
                                 }}
                               >
-                                HOME
+                                COMPLETE
                               </Button>
                             </Modal.Footer>
                           </Modal>
