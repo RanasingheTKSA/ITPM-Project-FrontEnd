@@ -218,7 +218,7 @@ class UpdateShippingDetails extends Component {
                     )}
                   </div>
                   <br />
-                  <div className="form-group">
+                  {/* <div className="form-group">
                     <label> EMAIL ADDRESS </label> <br />
                     <input
                       placeholder=" email address "
@@ -237,7 +237,7 @@ class UpdateShippingDetails extends Component {
                       <span className="invalid-feedback">{error.email}</span>
                     )}
                   </div>
-                  <br />
+                  <br /> */}
                   <div className="form-group">
                     <label> SHIPPING ADDRESS </label> <br />
                     <input
