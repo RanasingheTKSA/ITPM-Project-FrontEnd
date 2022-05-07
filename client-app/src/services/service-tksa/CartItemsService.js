@@ -6,10 +6,6 @@ class CartItemsService {
     getCartItems(){
         return axios.get(CART_ITEM_BASE_URL);
     }
-
-    deleteCartItem(cardItemId){
-        return axios.delete(CART_ITEM_BASE_URL + '/' + cardItemId);
-    }
 }
 
 export default new CartItemsService;
