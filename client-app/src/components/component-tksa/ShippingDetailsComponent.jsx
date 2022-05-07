@@ -165,7 +165,7 @@ class ShippingDetails extends Component {
   }
 
   paymentComplete() {
-    this.props.history.push("/cartItems");
+    this.props.history.push("/");
   }
 
   cancel() {
@@ -209,7 +209,7 @@ class ShippingDetails extends Component {
       <div>
         <div className="a">
           <h2 className="text-center">SHIPPING & PAYMENT DETAILS</h2> <br />
-          <div className="row">
+          <div className="row1">
             <div className="sddivcolour">
               <table className="tablesize ">
                 <tr>

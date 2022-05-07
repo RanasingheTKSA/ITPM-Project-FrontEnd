@@ -59,8 +59,8 @@ class CartItemsComponent extends Component {
       <div>
         <div className="a">
           <h2 className="text-center">CART ITEMS</h2>
-
-          <div className="row">
+          <br />
+          <div className="row1">
             <div className="sddivcolour">
               <table className="tablesize">
                 <tr>

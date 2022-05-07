@@ -68,7 +68,10 @@ class HeaderComponent extends Component {
                     </a>
                   </li>
                   <li class="item second cart-header">
-                    <a class="menu-button-main second nav-a cart-c" href="#">
+                    <a
+                      class="menu-button-main second nav-a cart-c"
+                      href="http://localhost:3000/Cart"
+                    >
                       <i class="fas fa-shopping-cart"></i>
                     </a>
                   </li>

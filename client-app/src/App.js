@@ -44,14 +44,7 @@ function App() {
               />
               <Route path="/cart" component={CartItemsComponent} />
               <Route path="/pdfcustomer" component={PdfForKaw} />
-              {/* </Switch> */}
-              {/* </div>
-        </div>
-        <FooterComponent /> */}
-              {/* <div className="container">
-          <HeaderComponent />
-          <div className="container">
-            <Switch> */}
+
               <Route path="/cartItems" component={CartItemsComponent}></Route>
               <Route
                 path="/shippingDetails"
