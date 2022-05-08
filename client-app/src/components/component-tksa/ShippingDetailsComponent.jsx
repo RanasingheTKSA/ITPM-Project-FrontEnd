@@ -361,6 +361,7 @@ class ShippingDetails extends Component {
                           <th>CARD HOLDER NAME</th>
                           <th>CARD NUMBER</th>
                           <th>EXPIRATION DATE</th>
+                          <th>CVV NUMBER</th>
                           <th>ACTION</th>
                         </tr>
                       </thead>
@@ -410,6 +411,18 @@ class ShippingDetails extends Component {
                                 className="tdWidth"
                                 key={card_payment_details.id}
                               >
+                                <label>{card_payment_details.cvv}</label>
+                                <br />
+                              </td>
+                            )
+                          )}
+
+                          {this.state.card_payment_details.map(
+                            (card_payment_details) => (
+                              <td
+                                className="tdWidth"
+                                key={card_payment_details.id}
+                              >
                                 <i
                                   class="fa-solid fa-square-pen fa-2x"
                                   onClick={() =>
@@ -421,6 +434,7 @@ class ShippingDetails extends Component {
                                 ></i>
                                 <i
                                   class="fa fa-trash fa-2x"
+                                  // className="fa-solid fa-trash  fa-2x"
                                   aria-hidden="true"
                                   onClick={() =>
                                     this.deleteCardDetails(

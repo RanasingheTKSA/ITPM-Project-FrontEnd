@@ -32,12 +32,14 @@ class UpdateCardPaymentDetailsComponent extends Component {
       cardHolderName: "",
       cardNumber: "",
       date: "",
+      cvv: "",
       expirationDate: "",
 
       error: {
         cardHolderName: "",
         cardNumber: "",
         date: "",
+        cvv: "",
       },
     };
     this.changeCardHolderNameHandler =
@@ -45,7 +47,7 @@ class UpdateCardPaymentDetailsComponent extends Component {
     this.changeCardNumberHandler = this.changeCardNumberHandler.bind(this);
     this.changeExpirationDateHandler =
       this.changeExpirationDateHandler.bind(this);
-
+    this.changeCvvHandler = this.changeCvvHandler.bind(this);
     this.updateCardDetail = this.updateCardDetail.bind(this);
     this.changeDateHandler = this.changeDateHandler.bind(this);
   }
@@ -83,6 +85,12 @@ class UpdateCardPaymentDetailsComponent extends Component {
             ? "Date should 7 characaters long and similler to the yyyy.mm"
             : "";
         break;
+      case "cvv":
+        error.cvv =
+          value.length < 3
+            ? "cvv should 3 characaters long and similler to the 123"
+            : "";
+        break;
       default:
         break;
     }
@@ -100,6 +108,7 @@ class UpdateCardPaymentDetailsComponent extends Component {
         cardHolderName: updateCardDetails.cardHolderName,
         cardNumber: updateCardDetails.cardNumber,
         date: updateCardDetails.date,
+        cvv: updateCardDetails.cvv,
         expirationDate: updateCardDetails.expirationDate,
       });
     });
@@ -111,6 +120,7 @@ class UpdateCardPaymentDetailsComponent extends Component {
       cardHolderName: this.state.cardHolderName,
       cardNumber: this.state.cardNumber,
       date: this.state.date,
+      cvv: this.state.cvv,
       expirationDate: this.state.expirationDate,
     };
 
@@ -135,6 +145,9 @@ class UpdateCardPaymentDetailsComponent extends Component {
 
   changeExpirationDateHandler = (event) => {
     this.setState({ expirationDate: event.target.value });
+  };
+  changeCvvHandler = (event) => {
+    this.setState({ cvv: event.target.value });
   };
 
   cancel() {
@@ -214,6 +227,26 @@ class UpdateCardPaymentDetailsComponent extends Component {
                     />
                     {error.date.length > 0 && (
                       <span className="invalid-feedback">{error.date}</span>
+                    )}
+                  </div>
+                  <br />
+                  <div className="form-group">
+                    <label> CVV NUMBER </label> <br />
+                    <input
+                      placeholder=" cvv number"
+                      name="cvv"
+                      // className="form-control"
+                      value={this.state.cvv}
+                      // onChange={this.changeCardNumberHandler}
+                      onChange={this.formObject}
+                      className={
+                        error.cvv.length > 0
+                          ? "is-invalid form-control"
+                          : "form-control"
+                      }
+                    />
+                    {error.cvv.length > 0 && (
+                      <span className="invalid-feedback">{error.cvv}</span>
                     )}
                   </div>
                   <br />

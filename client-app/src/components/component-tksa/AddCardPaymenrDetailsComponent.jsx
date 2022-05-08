@@ -35,12 +35,14 @@ class AddCardPaymenrDetailsComponent extends Component {
       cardHolderName: "",
       cardNumber: "",
       date: "",
+      cvv: "",
       startDate: new Date(),
 
       error: {
         cardHolderName: "",
         cardNumber: "",
         date: "",
+        cvv: "",
       },
     };
     this.handleChange = this.handleChange.bind(this);
@@ -90,6 +92,12 @@ class AddCardPaymenrDetailsComponent extends Component {
             ? "Date should 7 characaters long and similler to the yyyy.mm"
             : "";
         break;
+      case "cvv":
+        error.cvv =
+          value.length < 3
+            ? "cvv should 3 characaters long and similler to the 123"
+            : "";
+        break;
       default:
         break;
     }
@@ -118,6 +126,7 @@ class AddCardPaymenrDetailsComponent extends Component {
       cardHolderName: this.state.cardHolderName,
       cardNumber: this.state.cardNumber,
       date: this.state.date,
+      cvv: this.state.cvv,
       startDate: this.state.startDate,
     };
 
@@ -203,6 +212,25 @@ class AddCardPaymenrDetailsComponent extends Component {
                       <span className="invalid-feedback">
                         {error.cardNumber}
                       </span>
+                    )}
+                  </div>
+                  <div className="form-group">
+                    <label> CVV NUMBER </label> <br />
+                    <input
+                      placeholder=" cvv number"
+                      name="cvv"
+                      // className="form-control"
+                      value={this.state.cvv}
+                      // onChange={this.changeCardNumberHandler}
+                      onChange={this.formObject}
+                      className={
+                        error.cvv.length > 0
+                          ? "is-invalid form-control"
+                          : "form-control"
+                      }
+                    />
+                    {error.cvv.length > 0 && (
+                      <span className="invalid-feedback">{error.cvv}</span>
                     )}
                   </div>
                   <br />
