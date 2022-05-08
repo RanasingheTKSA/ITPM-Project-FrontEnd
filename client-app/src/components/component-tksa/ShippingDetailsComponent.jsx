@@ -63,6 +63,7 @@ class ShippingDetails extends Component {
     this.paymentComplete = this.paymentComplete.bind(this);
 
     this.deleteShippingDetails = this.deleteShippingDetails.bind(this);
+    this.deleteCardDetails = this.deleteCardDetails.bind(this);
   }
 
   onFormSubmit = (event) => {
@@ -179,6 +180,16 @@ class ShippingDetails extends Component {
       this.setState({
         shipping_details: this.state.shipping_details.filter(
           (shipping_details) => shipping_details.id !== id
+        ),
+      });
+    });
+  }
+
+  deleteCardDetails(id) {
+    CardPaymentDetailsService.deleteCardDetails(id).then((res) => {
+      this.setState({
+        card_payment_details: this.state.card_payment_details.filter(
+          (card_payment_details) => card_payment_details.id !== id
         ),
       });
     });
@@ -403,6 +414,16 @@ class ShippingDetails extends Component {
                                   class="fa-solid fa-square-pen fa-2x"
                                   onClick={() =>
                                     this.updateCardPaymentDetails(
+                                      card_payment_details.id
+                                    )
+                                  }
+                                  style={{ marginLeft: "5px" }}
+                                ></i>
+                                <i
+                                  class="fa fa-trash fa-2x"
+                                  aria-hidden="true"
+                                  onClick={() =>
+                                    this.deleteCardDetails(
                                       card_payment_details.id
                                     )
                                   }

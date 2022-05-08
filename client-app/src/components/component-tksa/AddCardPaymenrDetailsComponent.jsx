@@ -5,6 +5,28 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 
+const validation = ({ error, ...rest }) => {
+  let checkValidation = false;
+
+  Object.values(error).forEach((val) => {
+    if (val.length > 0) {
+      checkValidation = false;
+    } else {
+      checkValidation = true;
+    }
+  });
+
+  Object.values(rest).forEach((val) => {
+    if (val === null) {
+      checkValidation = false;
+    } else {
+      checkValidation = true;
+    }
+  });
+
+  return checkValidation;
+};
+
 class AddCardPaymenrDetailsComponent extends Component {
   constructor(props) {
     super(props);
@@ -14,6 +36,12 @@ class AddCardPaymenrDetailsComponent extends Component {
       cardNumber: "",
       date: "",
       startDate: new Date(),
+
+      error: {
+        cardHolderName: "",
+        cardNumber: "",
+        date: "",
+      },
     };
     this.handleChange = this.handleChange.bind(this);
     this.onFormSubmit = this.onFormSubmit.bind(this);
@@ -28,6 +56,49 @@ class AddCardPaymenrDetailsComponent extends Component {
 
     this.changeDateHandler = this.changeDateHandler.bind(this);
   }
+
+  onFormSubmit = (event) => {
+    event.preventDefault();
+
+    if (validation(this.state)) {
+      console.log(this.state);
+    } else {
+      console.log("Error occured");
+    }
+  };
+
+  formObject = (event) => {
+    event.preventDefault();
+
+    const { name, value } = event.target;
+    let error = { ...this.state.error };
+
+    switch (name) {
+      case "cardHolderName":
+        error.cardHolderName =
+          value.length < 5 ? "Name should be 5 or more characaters long" : "";
+        break;
+      case "cardNumber":
+        error.cardNumber =
+          value.length < 16
+            ? "Card Number should be similler to the xxxx xxxx xxxx xxxx"
+            : "";
+        break;
+      case "date":
+        error.date =
+          value.length < 7
+            ? "Date should 7 characaters long and similler to the yyyy.mm"
+            : "";
+        break;
+      default:
+        break;
+    }
+
+    this.setState({
+      error,
+      [name]: value,
+    });
+  };
 
   handleChange(date) {
     this.setState({
@@ -80,6 +151,7 @@ class AddCardPaymenrDetailsComponent extends Component {
   }
 
   render() {
+    const { error } = this.state;
     return (
       <div className="a">
         <div className="container">
@@ -94,34 +166,65 @@ class AddCardPaymenrDetailsComponent extends Component {
                     <label> CARD HOLDER NAME </label> <br />
                     <input
                       placeholder=" card holder name"
-                      name="card-holder-name"
-                      className="form-control"
+                      name="cardHolderName"
+                      // className="form-control"
                       value={this.state.cardHolderName}
-                      onChange={this.changeCardHolderNameHandler}
+                      // onChange={this.changeCardHolderNameHandler}
+                      onChange={this.formObject}
+                      className={
+                        error.cardHolderName.length > 0
+                          ? "is-invalid form-control"
+                          : "form-control"
+                      }
                     />
-                  </div>{" "}
+                    {error.cardHolderName.length > 0 && (
+                      <span className="invalid-feedback">
+                        {error.cardHolderName}
+                      </span>
+                    )}
+                  </div>
                   <br />
                   <div className="form-group">
                     <label> CARD NUMBER </label> <br />
                     <input
                       placeholder=" card number"
-                      name="card-number"
-                      className="form-control"
+                      name="cardNumber"
+                      // className="form-control"
                       value={this.state.cardNumber}
-                      onChange={this.changeCardNumberHandler}
+                      // onChange={this.changeCardNumberHandler}
+                      onChange={this.formObject}
+                      className={
+                        error.cardNumber.length > 0
+                          ? "is-invalid form-control"
+                          : "form-control"
+                      }
                     />
+                    {error.cardNumber.length > 0 && (
+                      <span className="invalid-feedback">
+                        {error.cardNumber}
+                      </span>
+                    )}
                   </div>
                   <br />
                   <div className="form-group">
                     <label> EXPIRATION DATE </label> <br />
                     <input
-                      placeholder=" expiration date"
-                      name="expiration-date"
-                      className="form-control"
+                      placeholder=" date"
+                      name="date"
+                      // className="form-control"
                       value={this.state.date}
-                      onChange={this.changeDateHandler}
+                      // onChange={this.changeDateHandler}
+                      onChange={this.formObject}
+                      className={
+                        error.date.length > 0
+                          ? "is-invalid form-control"
+                          : "form-control"
+                      }
                     />
-                  </div>{" "}
+                    {error.date.length > 0 && (
+                      <span className="invalid-feedback">{error.date}</span>
+                    )}
+                  </div>
                   <br />
                   {/* <div className="form-group">
                     <label> EXPIRATION DATE </label> <br />

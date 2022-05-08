@@ -22,6 +22,10 @@ class CardPaymentDetailsService {
       cardDetails
     );
   }
+
+  deleteCardDetails(cardPaymentID) {
+    return axios.delete(CARD_PAYMENT_DETAILS_BASE_URL + "/" + cardPaymentID);
+  }
 }
 
 export default new CardPaymentDetailsService();
