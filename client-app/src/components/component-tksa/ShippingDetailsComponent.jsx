@@ -61,6 +61,8 @@ class ShippingDetails extends Component {
     this.updateCardPaymentDetails = this.updateCardPaymentDetails.bind(this);
     this.thankYouPage = this.thankYouPage.bind(this);
     this.paymentComplete = this.paymentComplete.bind(this);
+
+    this.deleteShippingDetails = this.deleteShippingDetails.bind(this);
   }
 
   onFormSubmit = (event) => {
@@ -170,6 +172,16 @@ class ShippingDetails extends Component {
 
   cancel() {
     this.props.history.push("/shippingDetails");
+  }
+
+  deleteShippingDetails(id) {
+    ShippingDetailsService.deleteShippingDetails(id).then((res) => {
+      this.setState({
+        shipping_details: this.state.shipping_details.filter(
+          (shipping_details) => shipping_details.id !== id
+        ),
+      });
+    });
   }
 
   //generate PDF file
@@ -292,6 +304,16 @@ class ShippingDetails extends Component {
                                   }
                                   style={{ marginLeft: "5px" }}
                                 ></i>
+                                <i
+                                  class="fa fa-trash fa-2x"
+                                  aria-hidden="true"
+                                  onClick={() =>
+                                    this.deleteShippingDetails(
+                                      shipping_details.id
+                                    )
+                                  }
+                                  style={{ marginLeft: "5px" }}
+                                ></i>
                               </td>
                             )
                           )}
@@ -365,9 +387,7 @@ class ShippingDetails extends Component {
                                 className="tdWidth"
                                 key={card_payment_details.id}
                               >
-                                <label>
-                                  {card_payment_details.expirationDate}
-                                </label>{" "}
+                                <label>{card_payment_details.date}</label>
                                 <br />
                               </td>
                             )
@@ -459,12 +479,10 @@ class ShippingDetails extends Component {
                             </Modal.Header>
                             <Modal.Body>
                               <p className="modalParaAlignment">
-                                The payment was completed, and the payment
-                                report was delivered to the email address
-                                provided. We offer excellent client service and
-                                the highest quality goods as requested. Please
-                                stay with us. Thank you so much for getting in
-                                touch with us!
+                                The payment was completed. We offer excellent
+                                client service and the highest quality goods as
+                                requested. Please stay with us. Thank you so
+                                much for getting in touch with us!
                                 <br />
                                 <br />
                                 Please stay with us.

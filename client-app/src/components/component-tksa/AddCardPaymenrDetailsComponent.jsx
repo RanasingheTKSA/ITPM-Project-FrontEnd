@@ -12,6 +12,7 @@ class AddCardPaymenrDetailsComponent extends Component {
     this.state = {
       cardHolderName: "",
       cardNumber: "",
+      date: "",
       startDate: new Date(),
     };
     this.handleChange = this.handleChange.bind(this);
@@ -22,6 +23,10 @@ class AddCardPaymenrDetailsComponent extends Component {
     this.changeCardNumberHandler = this.changeCardNumberHandler.bind(this);
     this.changeStartDateHandler = this.changeStartDateHandler.bind(this);
     this.saveCardPaymentDetails = this.saveCardPaymentDetails.bind(this);
+    this.changeExpirationDateHandler =
+      this.changeExpirationDateHandler.bind(this);
+
+    this.changeDateHandler = this.changeDateHandler.bind(this);
   }
 
   handleChange(date) {
@@ -41,6 +46,7 @@ class AddCardPaymenrDetailsComponent extends Component {
     let cardPaymentDetails = {
       cardHolderName: this.state.cardHolderName,
       cardNumber: this.state.cardNumber,
+      date: this.state.date,
       startDate: this.state.startDate,
     };
 
@@ -61,6 +67,14 @@ class AddCardPaymenrDetailsComponent extends Component {
   changeStartDateHandler = (event) => {
     this.setState({ startDate: event.target.value });
   };
+  changeDateHandler = (event) => {
+    this.setState({ date: event.target.value });
+  };
+
+  changeExpirationDateHandler = (event) => {
+    this.setState({ expirationDate: event.target.value });
+  };
+
   cancel() {
     this.props.history.push("/shippingDetails");
   }
@@ -98,17 +112,18 @@ class AddCardPaymenrDetailsComponent extends Component {
                     />
                   </div>
                   <br />
-                  {/* <div className="form-group">
-                                        <label> EXPIRATION DATE </label> <br/>
-                                        <input 
-                                            placeholder=' expiration date'
-                                            name='expiration-date'
-                                            className='form-control'
-                                            value={this.state.expirationDate}
-                                            onChange = {this.changeExpirationDateHandler}
-                                            />
-                                    </div> <br/> */}
                   <div className="form-group">
+                    <label> EXPIRATION DATE </label> <br />
+                    <input
+                      placeholder=" expiration date"
+                      name="expiration-date"
+                      className="form-control"
+                      value={this.state.date}
+                      onChange={this.changeDateHandler}
+                    />
+                  </div>{" "}
+                  <br />
+                  {/* <div className="form-group">
                     <label> EXPIRATION DATE </label> <br />
                     <DatePicker
                       selected={this.state.startDate}
@@ -117,7 +132,7 @@ class AddCardPaymenrDetailsComponent extends Component {
                       dateFormat="MM/dd/yyyy"
                       className="form-control"
                     />
-                  </div>
+                  </div> */}
                   <br />
                   <div>
                     <button

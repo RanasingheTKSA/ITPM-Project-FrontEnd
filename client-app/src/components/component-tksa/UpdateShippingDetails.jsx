@@ -194,7 +194,7 @@ class UpdateShippingDetails extends Component {
                         {error.ownerName}
                       </span>
                     )}
-                  </div>{" "}
+                  </div>
                   <br />
                   <div className="form-group">
                     <label> PHONE NUMBER </label> <br />
