@@ -13,11 +13,11 @@ class HeaderComponent extends Component {
     render() {
         return (
             <div>
-                <header>
+                {/* <header>
                     <nav className='navbar navbar-expand-md navbar-dark bg-dark'>
                         <div className='navbar-brand'></div>
                     </nav>
-                </header>
+                </header> */}
             </div>
         );
     }
