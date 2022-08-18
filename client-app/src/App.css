@@ -38,6 +38,18 @@
 }
 
 /* CSS - Ranasinghe TKSA */
+.iconButton {
+  padding-top: 60px;
+}
+
+.imageCart {
+  height: 150px;
+  width: 150px;
+  padding-left: 20px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
 .td_size {
   width: 60%;
   padding-left: 35px;

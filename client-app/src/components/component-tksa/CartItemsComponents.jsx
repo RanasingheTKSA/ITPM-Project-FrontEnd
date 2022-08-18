@@ -4,6 +4,8 @@ import Card from "react-bootstrap/Card";
 import { Button, CardImg, Table } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
+import img from "../../Asset/27.jpg";
+
 class CartItemsComponent extends Component {
   constructor(props) {
     super(props);
@@ -25,6 +27,7 @@ class CartItemsComponent extends Component {
           (cartitem) => cartitem.id !== id
         ),
       });
+      window.location.reload(false);
     });
   }
 
@@ -83,7 +86,10 @@ class CartItemsComponent extends Component {
                                 <table className="tablealign">
                                   <tr>
                                     <td className="imageAlign">
-                                      <CardImg src={cartitem.image}></CardImg>
+                                      <CardImg
+                                        class="imageCart"
+                                        src={img}
+                                      ></CardImg>
                                     </td>
                                     <td className="colunmSize">
                                       <Card.Text className="textAlign">
@@ -102,7 +108,7 @@ class CartItemsComponent extends Component {
                                     </td>
                                     <td className="buttonAlign">
                                       <i
-                                        class="fa fa-trash fa-2x"
+                                        class="fa fa-trash fa-2x iconButton"
                                         aria-hidden="true"
                                         onClick={() =>
                                           this.deleteCartItem(cartitem.id)
